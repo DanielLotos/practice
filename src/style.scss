@@ -1,0 +1,59 @@
+@import "./scss/variables";
+@import "./scss/fonts";
+@import "./scss/global";
+
+body {
+  padding-top: 24px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search {
+  padding: 10px 20px;
+  border: 2px solid #f5f5f5;
+  border-radius: 28px;
+  &__submit {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+
+    background-color: transparent;
+    background-image: url("./img/ic_search.svg");
+    background-position: center;
+    border: none;
+
+    font-size: 0;
+  }
+  &__text {
+    border: none;
+  }
+}
+
+.logo {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 8px solid $blueLogo;
+  border-radius: 50%;
+  font-size: 0;
+}
+
+.user {
+  &__item {
+    display: inline-block;
+  }
+}
+
+.categories {
+  &__item {
+    display: inline-block;
+  }
+}
