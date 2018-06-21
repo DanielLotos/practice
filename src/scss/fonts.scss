@@ -4,12 +4,14 @@
     font-family: 'Roboto';
     src: url('./Roboto-Bold.ttf') format('ttf');
     font-weight: 700;
+    font-style: normal;
 }
 
 @font-face {
     font-family: 'Roboto';
     src: url('./Roboto-Medium.ttf') format('ttf');
     font-weight: 500;
+    font-style: normal;
 }
 
 body {
@@ -17,13 +19,41 @@ body {
     color: $colorPermGrey;
     font-size: 14px;
     & a {
+      font-family: inherit;
       color: $colorPermGrey;
     }
 }
+.search {
+  &__submit {
+    font-size: 0;
+  }
+  &__text {
+    font-size: 12px;
+    color: $colorLightGrey;
+    &::placeholder {
+      color: inherit;
+      font-size: inherit;
+      font-weight: $Bold;
+    }
+  }
+}
 
+.user {
+  &__link {
+    color: $colorHeaderNav;
+    font-size: 13px;
+    line-height: 30px;
+    &--user {
+      font-size: 0;
+    }
+  }
+}
 
 .categories__link {
+  font-size: 13px;
+  line-height: 20px;
   color: $colorHeaderNav;
+  font-weight: $Medium;
   &--active {
     font-weight: $Bold;
   }

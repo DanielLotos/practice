@@ -1,3 +1,5 @@
+@import "./scss/sprites";
+
 $font-fallback: system,
                 -apple-system,
                 '.SFNSText-Regular',
@@ -15,3 +17,5 @@ $blueLogo: #0078FF;
 $colorLightGrey: #B2B2B2;
 $colorPermGrey: #808080;
 $colorHeaderNav: #999999;
+$colorBorderContent: #F5F5F5;
+$borderContent: 2px solid $colorBorderContent;
