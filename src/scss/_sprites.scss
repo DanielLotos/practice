@@ -1,15 +1,15 @@
 /* Generated data URIs used for preview purposes only */
 /* Be sure that you replace data URIs with generated images */
-.sprite:before {
+.sprite::before {
   position: absolute;
   top: 0;
   left: 0;
-	background-image: url('./img/sprite.png');
+	background-image: url('../img/sprite.png');
 }
 
 @media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
-	.sprite {
-    background-image: url('./img/sprite.png');
+	.sprite::before {
+    background-image: url('../img/sprite.png');
     background-size: 160px 40px;
 	}
 }
@@ -17,11 +17,11 @@
 .sprite-h-search {
 	width: 30px;
 	height: 30px;
-  background-image: url('./img/sprite.png');
+  background-image: url('../img/sprite.png');
   background-position: -90px 0;
 }
 
-.sprite-h-favorite:before {
+.sprite-h-favorite::before {
   content: "";
   display: inline-block;
 	width: 30px;
@@ -29,7 +29,7 @@
 	background-position: -60px 0;
 }
 
-.sprite-h-compare:before {
+.sprite-h-compare::before {
   content: "";
   display: inline-block;
 	width: 30px;
@@ -37,7 +37,7 @@
 	background-position: -30px 0;
 }
 
-.sprite-h-cart:before {
+.sprite-h-cart::before {
   content: "";
   display: inline-block;
 	width: 30px;
@@ -45,11 +45,11 @@
 	background-position: 0 0;
 }
 
-.sprite-h-user:before {
+.sprite-h-user::before {
   content: "";
   display: inline-block;
 	width: 40px;
   height: 40px;
-  background-image: url('./img/sprite.png');
+  background-image: url('../img/sprite.png');
 	background-position: -120px 0;
 }

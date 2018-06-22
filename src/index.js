@@ -4,4 +4,4 @@ console.log('Hello world!');
 
 // import './index.pug';
 import './index.haml';
-import './style.scss';
+import './scss/style.scss';

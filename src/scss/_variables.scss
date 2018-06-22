@@ -1,5 +1,3 @@
-@import "./scss/sprites";
-
 $font-fallback: system,
                 -apple-system,
                 '.SFNSText-Regular',
@@ -10,6 +8,7 @@ $font-fallback: system,
                 'Lucida Grande',
                 sans-serif;
 
+$Regular: 400;
 $Medium: 500;
 $Bold: 700;
 

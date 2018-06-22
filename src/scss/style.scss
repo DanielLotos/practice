@@ -1,6 +1,18 @@
-@import "./scss/variables";
-@import "./scss/fonts";
-@import "./scss/global";
+@import "./variables";
+@import "./sprites";
+@import "./fonts";
+@import "./global";
+@import "./vendor/normalize.css";
+
+body {
+  font-family: 'Roboto', $font-fallback, serif;
+  color: $colorPermGrey;
+  font-size: 14px;
+  & a {
+    font-family: inherit;
+    color: $colorPermGrey;
+  }
+}
 
 .nav {
   display: flex;
@@ -11,6 +23,7 @@
   position: relative; //For PixPerfect
   display: flex;
   padding: 20px 25px;
+  padding-bottom: 18px;
   justify-content: space-between;
   border-bottom: $borderContent;
   align-items: center;
@@ -32,9 +45,17 @@
 
     background-color: transparent;
     border: none;
+    font-size: 0;
   }
   &__text {
     border: none;
+    font-size: 12px;
+    color: $colorLightGrey;
+    &::placeholder {
+      color: inherit;
+      font-size: inherit;
+      font-weight: $Bold;
+    }
   }
 }
 
@@ -53,42 +74,57 @@
 
 .user {
   display: flex;
+  padding-right: 5px;
   align-items: center;
   &__item {
     display: inline-block;
-    margin-left: 25px;
+    margin-left: 22px;
+    &--user {
+      margin-left: 30px;
+    }
   }
   &__link {
     position: relative;
     display: inline-block;
     padding-left: 40px;
+    color: $colorHeaderNav;
+    font-size: 13px;
+    font-weight: $Medium;
+    line-height: 30px;
     &--user {
       padding: 0;
       width: 40px;
       height: 40px;
-      background-image: url('./img/sprite.png');
+      background-image: url('../img/sprite.png');
       background-position: -120px 0;
+      font-size: 0;
     }
   }
 }
 
 .categories {
-  padding: 15px 0;
+  padding: 21px 0;
+  padding-bottom: 17px;
   border-bottom: $borderContent;
   text-align: center;
   &__item {
     display: inline-block;
-    margin: 0 20px;
+    margin: 0 19px;
     &:first-of-type {
-      margin: 0;
-      margin-right: 20px;
+      margin-left: 0;
     }
     &:last-of-type {
-      margin: 0;
-      margin-left: 20px;
+      margin-right: 0;
     }
   }
   &__link {
     display: block;
+    font-size: 13px;
+    line-height: 20px;
+    color: $colorHeaderNav;
+    font-weight: $Medium;
+    &--active {
+      font-weight: $Bold;
+    }
   }
 }

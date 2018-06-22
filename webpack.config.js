@@ -78,7 +78,7 @@ module.exports = {
     // Очистка директории выхода
     new CleanWebpackPlugin(['dist']),
     // Экспорт стилей
-    new ExtractTextPlugin({filename: 'style.css'}),
+    new ExtractTextPlugin({filename: './style.css'}),
     // Настройка обработчика HTML
     new HtmlWebpackPlugin({
       // template: './src/index.pug'
