@@ -1,9 +1,123 @@
 html(lang="en")
   head
     meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title
-      | My first document in PUG
-  body
-    include ./pug/div.pug
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title Main Marketplace
+  body.main
+    include pug/_mixins.pug
+    include pug/_sprites.pug
+
+    header.main-header
+      h1.main-header__title.visually-hidden Wellcome to Marketplace
+      nav.main-header__nav
+        .user-nav
+          form.search
+            input.search__submit.sprite-h-search(type="submit" value="Поиск" name="s" title="Search this!")
+            input.search__text(type="text" placeholder="Search goods...")
+          a.logo(href="#") Go Home
+          ul.user
+            li.user__item
+              a.user__link.sprite.sprite-h-favorite(href="#") Favorite
+            li.user__item
+              a.user__link.sprite.sprite-h-compare(href="#") Compare
+            li.user__item
+              a.user__link.sprite.sprite-h-cart(href="#") Cart
+            li.user__item.user__item--user
+              a.user__link.user__link--user(href="#" title="My account") User
+        ul.categories
+          +listItems("categories", "#", "Electronics")
+          +listItems("categories", "#", "Appliances")
+          +listItems("categories", "#", "Children's goods")
+          +listItems("categories", "#", "Repairs")
+          +listItems("categories", "#", "Clothes")
+          +listItems("categories", "#", "Footwear")
+          +listItems("categories", "#", "Beauty")
+
+    main.content
+      h2.content__title.visually-hidden
+        | Content zone
+      section.promo-card
+        button.promo-card__arrow.promo-card__arrow--back(type="button")
+          svg.promo-card__svg
+            use(xlink:href="#ic_arrow_back")
+        button.promo-card__arrow.promo-card__arrow--forward(type="button")
+          svg.promo-card__svg
+              use(xlink:href="#ic_arrow_forward")
+        .promo-card__wrapper
+          h3.promo-card__title
+            | The Best Place to Play
+          a.promo-card__btn(href="#")
+            | Badge
+          p.promo-card__subtitle
+            | space the final frontier
+
+      section.product
+        .product-header
+          h2.product-header__title
+            svg.product-header__svg
+              use(xlink:href="#ic_star")
+            | Interesting offers
+          .product-header__wrapper
+            button.product-header__btn
+              | Popular
+            button.product-header__btn
+              | Trending
+            button.product-header__btn
+              | New
+          form.product-header__wrapper.product-header__form
+            select.product-header__input.product-header__select(name="categories")
+              option(value="" hidden) Categories
+              option(value="Electronics") Electronics
+              option(value="Appleances") Appleances
+              option(value="Chilldren's goods") Chilldren's goods
+              option(value="Repairs") Repairs
+              option(value="Clothes") Clothes
+              option(value="Footwear") Footwear
+              option(value="Beauty") Beauty
+            select.product-header__input.product-header__select(name="date")
+              option(value="" hidden) Date
+              option(value="Last week") Last week
+              option(value="Last 30 days") Last 30 days
+              option(value="Last 90 days") Last 90 days
+        //- Block with product cards
+        .products
+          h2.products__title.visually-hidden
+            | Product list
+          +productsItem('Recommend', 'asus-zenfone-go', 'Smartphone Asus ZenFone Go ZB452KG', 'Asus ZenFone Go ZB452KG', '384.4')
+          +productsItem('Bestseller', 'xiaomi-mi-band-2', 'Xiaomi Mi Band 2', 'Xiaomi Mi Band 2', '384.4')
+          +productsItem('Goods of the week', 'lg-43uh610v', 'LG 43UH610V', 'LG 43UH610V', '384.4')
+          +productsItem('Recommend', 'apple-imac-27-retina-5k', 'Apple iMac 27 Retina 5K', 'Apple iMac 27 Retina 5K', '384.4')
+          +productsItem('New product', 'lg-conditioner', 'LG Conditioner', 'LG Conditioner', '384.4')
+          +productsItem('Recommend', 'electrolux', 'Electrolux EZB 52410 AK', 'Electrolux EZB 52410 AK', '384.4')
+          +productsItem('Bestseller', 'beats-studio-wireles', 'Beats studio wireless', 'Beats studio wireless', '384.4')
+          +productsItem('Recommend', 'nikon-d3300', 'Nikon D3300 Kit', 'Nikon D3300 Kit', '384.4')
+        button.product__btn(type="button")
+          | show more
+
+    section.subscribe
+      h2.subscribe__title.visually-hidden
+        | Subscribe section
+      svg.subscribe__svg.subscribe__svg--open-mail
+        use(xlink:href="#ic_email_open")
+      p.subscribe__caption
+        | Learn about profitable offers and get personal recommendations
+      form.subscribe-form(action="#")
+        svg.subscribe__svg.subscribe-form__svg
+          use(xlink:href="#ic_email")
+        input.subscribe-form__input(type="email" placeholder="Email")
+        button.subscribe-form__btn(type="submit")
+          | Subscribe
+
+    section.view-products
+      h2.view-products__title
+        svg.view-products__svg
+          use(xlink:href="#eye")
+        | Recently viewed products
+      .view-products__container
+        +viewProduct('iphone-7', 'Apple iPhone 7', 'Apple iPhone 7', '670')
+        +viewProduct('lg-43uh610v', 'LG 43UH610V', 'LG 43UH610V', '545')
+        +viewProduct('lg-phone', 'LG G6 H870DS', 'LG G6 H870DS', '545')
+        +viewProduct('beats-studio-wireles', 'Beats studio wireless', 'Beats studio wireless', '545')
+
+    include pug/footer.pug

@@ -1,0 +1,14 @@
+import './img/sprite/eye.svg';
+import './img/sprite/f_shops.svg';
+import './img/sprite/f_users.svg';
+import './img/sprite/f_statistic.svg';
+import './img/sprite/h_cart.svg';
+import './img/sprite/h_compare.svg';
+import './img/sprite/h_favorite.svg';
+import './img/sprite/h_search.svg';
+import './img/sprite/ic_arrow_back.svg';
+import './img/sprite/ic_arrow_forward.svg';
+import './img/sprite/ic_email.svg';
+import './img/sprite/ic_email_open.svg';
+import './img/sprite/ic_star.svg';
+import './img/sprite/ic_arrow-down.svg';
