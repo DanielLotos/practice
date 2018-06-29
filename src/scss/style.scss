@@ -1,8 +1,7 @@
-@import "./variables";
-@import "./sprites";
 @import "./fonts";
 @import "./global";
-@import "./vendor/normalize.css";
+@import "./variables";
+@import "./sprites";
 
 body {
   font-family: 'Roboto', $font-fallback, serif;

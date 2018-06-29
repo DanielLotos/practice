@@ -3,7 +3,7 @@ import './js/script2.js';
 console.log('Hello world!');
 
 // Здесь список всех используемых SVG-файлов
-// import './sprite-list.js';
+import './sprite-list.js';
 
 // Импорт списка изображений товаров
 import './products-list.js';

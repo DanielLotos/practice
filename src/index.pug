@@ -6,7 +6,8 @@ html(lang="en")
     title Main Marketplace
   body.main
     include pug/_mixins.pug
-    include pug/_sprites.pug
+    //- include pug/_sprites.pug
+    include img/sprite.svg
 
     header.main-header
       h1.main-header__title.visually-hidden Wellcome to Marketplace
@@ -40,10 +41,10 @@ html(lang="en")
       section.promo-card
         button.promo-card__arrow.promo-card__arrow--back(type="button")
           svg.promo-card__svg
-            use(xlink:href="#ic_arrow_back")
+            use(xlink:href="#icon_arrow_back")
         button.promo-card__arrow.promo-card__arrow--forward(type="button")
           svg.promo-card__svg
-              use(xlink:href="#ic_arrow_forward")
+              use(xlink:href="#icon_arrow_forward")
         .promo-card__wrapper
           h3.promo-card__title
             | The Best Place to Play
@@ -56,7 +57,7 @@ html(lang="en")
         .product-header
           h2.product-header__title
             svg.product-header__svg
-              use(xlink:href="#ic_star")
+              use(xlink:href="#icon_star")
             | Interesting offers
           .product-header__wrapper
             button.product-header__btn
@@ -99,12 +100,12 @@ html(lang="en")
       h2.subscribe__title.visually-hidden
         | Subscribe section
       svg.subscribe__svg.subscribe__svg--open-mail
-        use(xlink:href="#ic_email_open")
+        use(xlink:href="#icon_mail-open")
       p.subscribe__caption
         | Learn about profitable offers and get personal recommendations
       form.subscribe-form(action="#")
         svg.subscribe__svg.subscribe-form__svg
-          use(xlink:href="#ic_email")
+          use(xlink:href="#icon_email")
         input.subscribe-form__input(type="email" placeholder="Email")
         button.subscribe-form__btn(type="submit")
           | Subscribe
@@ -112,7 +113,7 @@ html(lang="en")
     section.view-products
       h2.view-products__title
         svg.view-products__svg
-          use(xlink:href="#eye")
+          use(xlink:href="#icon_eye")
         | Recently viewed products
       .view-products__container
         +viewProduct('iphone-7', 'Apple iPhone 7', 'Apple iPhone 7', '670')

@@ -5,6 +5,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
+
+
+
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -33,15 +36,15 @@ module.exports = {
       },
 
       // Правила для сборки SVG-спрайта
-      // {
-      //   test: /\.svg$/,
-      //   loader: 'svg-sprite-loader',
-      //   options: {
-      //     extract: true,
-      //     symbolID: (path) => path.basename(path),
-      //     publicPath: '/'
-      //   }
-      // },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        options: {
+          extract: true
+          // symbolID: (path) => path.basename(path),
+          // publicPath: '/'
+        }
+      },
 
       // Правило для SCSS-файлов
       {
@@ -98,13 +101,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       // template: './src/index.pug'
       template: './src/index.pug'
+    }),
+    new SpriteLoaderPlugin({
+      plainSprite: true,
+      spriteAttrs: {
+        id: 'import-svg',
+        class: 'visually-hidden'
+      }
+      // spriteAttrs: {
+      //   id: 'sprite-svg'
+      // }
     })
-    // new SpriteLoaderPlugin({
-    //   // plainSprite: true,
-    //   spriteAttrs: {
-    //     id: 'sprite-svg'
-    //   }
-    // })
   ]
 
 };
