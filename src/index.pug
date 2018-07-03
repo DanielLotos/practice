@@ -13,16 +13,31 @@ html(lang="en")
       nav.main-header__nav
         .user-nav
           form.search
-            input.search__submit.sprite-h-search(type="submit" value="Поиск" name="s" title="Search this!")
+            //- input.search__submit.sprite-h-search(type="submit" value="Поиск" name="s" title="Search this!")
+            button.search__submit(type="submit" value="Поиск" name="s" title="Search this!")
+              svg.search__svg
+                  use(xlink:href="#icon_search")
             input.search__text(type="text" placeholder="Search goods...")
-          a.logo(href="#") Go Home
+          a.logo(href="/") Go Home
           ul.user
             li.user__item
-              a.user__link.sprite.sprite-h-favorite(href="#") Favorite
+              //- a.user__link.sprite.sprite-h-favorite(href="#") Favorite
+              a.user__link(href="#")
+                svg.user__svg
+                  use(xlink:href="#icon_favorite")
+                | Favorite
             li.user__item
-              a.user__link.sprite.sprite-h-compare(href="#") Compare
+              //- a.user__link.sprite.sprite-h-compare(href="#") Compare
+              a.user__link(href="#")
+                svg.user__svg
+                  use(xlink:href="#icon_compare")
+                | Compare
             li.user__item
-              a.user__link.sprite.sprite-h-cart(href="#") Cart
+              //- a.user__link.sprite.sprite-h-cart(href="#") Cart
+              a.user__link(href="#")
+                svg.user__svg
+                  use(xlink:href="#icon_cart")
+                | Cart
             li.user__item.user__item--user
               a.user__link.user__link--user(href="#" title="My account") User
         ul.categories
