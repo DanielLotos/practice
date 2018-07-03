@@ -1,0 +1,22 @@
+$phone: 500px;
+$tablet: 768px;
+$hd1024: 1024px;
+$hd1440: 1440px;
+
+@mixin screen-style($media) {
+  @if $media == minPhone {
+    @media only screen and (max-width: $phone - 1) { @content; }
+  }
+  @if $media == phone {
+    @media only screen and (min-width: $phone - 1) and (max-width: $tablet - 1) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $tablet - 1) and (max-width: $hd1024 - 1) { @content; }
+  }
+  @else if $media == hd1024 {
+    @media only screen and (min-width: $hd1024 - 1) and (max-width: $hd1440 - 1) { @content; }
+  }
+  @else if $media == hd1440 {
+    @media only screen and (min-width: $hd1440 - 1) { @content; }
+  }
+}

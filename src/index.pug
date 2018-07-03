@@ -6,7 +6,6 @@ html(lang="en")
     title Main Marketplace
   body.main
     include pug/_mixins.pug
-    //- include pug/_sprites.pug
     include img/sprite.svg
 
     header.main-header
@@ -27,13 +26,14 @@ html(lang="en")
             li.user__item.user__item--user
               a.user__link.user__link--user(href="#" title="My account") User
         ul.categories
-          +listItems("categories", "#", "Electronics")
-          +listItems("categories", "#", "Appliances")
-          +listItems("categories", "#", "Children's goods")
-          +listItems("categories", "#", "Repairs")
-          +listItems("categories", "#", "Clothes")
-          +listItems("categories", "#", "Footwear")
-          +listItems("categories", "#", "Beauty")
+          .categories__content
+            +listItems("categories", "#", "Electronics")
+            +listItems("categories", "#", "Appliances")
+            +listItems("categories", "#", "Children's goods")
+            +listItems("categories", "#", "Repairs")
+            +listItems("categories", "#", "Clothes")
+            +listItems("categories", "#", "Footwear")
+            +listItems("categories", "#", "Beauty")
 
     main.content
       h2.content__title.visually-hidden
@@ -66,25 +66,29 @@ html(lang="en")
               | Trending
             button.product-header__btn
               | New
-          form.product-header__wrapper.product-header__form
-            select.product-header__input.product-header__select(name="categories")
-              option(value="" hidden) Categories
-              option(value="Electronics") Electronics
-              option(value="Appleances") Appleances
-              option(value="Chilldren's goods") Chilldren's goods
-              option(value="Repairs") Repairs
-              option(value="Clothes") Clothes
-              option(value="Footwear") Footwear
-              option(value="Beauty") Beauty
-            select.product-header__input.product-header__select(name="date")
-              option(value="" hidden) Date
-              option(value="Last week") Last week
-              option(value="Last 30 days") Last 30 days
-              option(value="Last 90 days") Last 90 days
+          form.product-header__wrapper.product-form
+            .product-form__select-wrapper
+              select.product-form__select(name="categories")
+                option(value="" hidden) Categories
+                option(value="Electronics") Electronics
+                option(value="Appleances") Appleances
+                option(value="Chilldren's goods") Chilldren's goods
+                option(value="Repairs") Repairs
+                option(value="Clothes") Clothes
+                option(value="Footwear") Footwear
+                option(value="Beauty") Beauty
+              svg.product-form__svg
+                use(xlink:href="#icon_arrow-down")
+            .product-form__select-wrapper
+              select.product-form__select(name="date")
+                option(value="" hidden) Date
+                option(value="Last week") Last week
+                option(value="Last 30 days") Last 30 days
+                option(value="Last 90 days") Last 90 days
+              svg.product-form__svg
+                use(xlink:href="#icon_arrow-down")
         //- Block with product cards
         .products
-          h2.products__title.visually-hidden
-            | Product list
           +productsItem('Recommend', 'asus-zenfone-go', 'Smartphone Asus ZenFone Go ZB452KG', 'Asus ZenFone Go ZB452KG', '384.4')
           +productsItem('Bestseller', 'xiaomi-mi-band-2', 'Xiaomi Mi Band 2', 'Xiaomi Mi Band 2', '384.4')
           +productsItem('Goods of the week', 'lg-43uh610v', 'LG 43UH610V', 'LG 43UH610V', '384.4')

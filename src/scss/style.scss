@@ -2,6 +2,7 @@
 @import "./global";
 @import "./variables";
 @import "./sprites";
+@import "./mixin";
 
 body {
   font-family: 'Roboto', $font-fallback, serif;
@@ -11,10 +12,22 @@ body {
     font-family: inherit;
     color: #808080;
   }
+  @include screen-style(hd1024) {
+    padding: 0 8px;
+  }
+  @include screen-style(tablet) {
+    padding: 0 8px;
+  }
+  @include screen-style(phone) {
+    padding: 0 8px;
+  }
+  @include screen-style(minPhone) {
+    padding: 0 8px;
+  }
 }
 
 .main-header {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   &__nav {
     display: flex;
     flex-direction: column;
@@ -24,11 +37,29 @@ body {
 .user-nav {
   position: relative; //For PixPerfect
   display: flex;
+  width: 1440px;
+  margin: 0 auto;
   padding: 20px 25px;
   padding-bottom: 18px;
   justify-content: space-between;
-  border-bottom: 2px solid #F5F5F5;
   align-items: center;
+
+  @include screen-style(hd1024) {
+    width: 100%;
+  }
+  @include screen-style(tablet) {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  @include screen-style(phone) {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  @include screen-style(minPhone) {
+    width: 100%;
+    padding: 20px 8px;
+    flex-wrap: wrap;
+  }
 }
 
 .search {
@@ -39,6 +70,21 @@ body {
   align-items: center;
   border: 2px solid #f5f5f5;
   border-radius: 28px;
+  @include screen-style(tablet) {
+    margin-bottom: 16px;
+    order: 1;
+    flex-basis: 100%;
+  }
+  @include screen-style(phone) {
+    margin-bottom: 16px;
+    order: 1;
+    flex-basis: 100%;
+  }
+  @include screen-style(minPhone) {
+    margin-bottom: 16px;
+    order: 1;
+    flex-basis: 100%;
+  }
   &__submit {
     display: inline-block;
     width: 30px;
@@ -73,17 +119,70 @@ body {
   border: 8px solid $blueLogo;
   border-radius: 50%;
   font-size: 0;
+  &:hover {
+    background-color: #DADADA;
+  }
+  @include screen-style(tablet) {
+    position: relative;
+    transform: none;
+    top: auto;
+    left: auto;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    order: 0;
+  }
+  @include screen-style(phone) {
+    position: relative;
+    transform: none;
+    top: auto;
+    left: auto;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    order: 0;
+  }
+  @include screen-style(minPhone) {
+    position: relative;
+    transform: none;
+    top: auto;
+    left: auto;
+    margin: 0 auto;
+    margin-bottom: 16px;
+    order: 0;
+  }
 }
 
 .user {
   display: flex;
   padding-right: 5px;
   align-items: center;
+  @include screen-style(tablet) {
+    order: 2;
+    flex-basis: 100%;
+  }
+  @include screen-style(phone) {
+    order: 2;
+    flex-basis: 100%;
+  }
+  @include screen-style(minPhone) {
+    order: 2;
+    flex-basis: 100%;
+  }
   &__item {
     display: inline-block;
-    margin-left: 22px;
+    margin-left: 12px;
+    &:first-of-type {
+      margin-left: 0;
+    }
     &--user {
-      margin-left: 30px;
+      @include screen-style(tablet) {
+        margin-left: auto;
+      }
+      @include screen-style(phone) {
+        margin-left: auto;
+      }
+      @include screen-style(minPhone) {
+        margin-left: auto;
+      }
     }
   }
   &__link {
@@ -111,8 +210,31 @@ body {
 .categories {
   padding: 21px 0;
   padding-bottom: 17px;
-  border-bottom: 2px solid #F5F5F5;
+  border-top: $borderTop;
+  border-bottom: $borderBottom;
   text-align: center;
+  &__content {
+    max-width: 1440px;
+    margin: 0 auto;
+    @include screen-style(tablet) {
+      display: flex;
+      max-width: 70%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    @include screen-style(phone) {
+      display: flex;
+      max-width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    @include screen-style(minPhone) {
+      display: flex;
+      max-width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
   &__item {
     display: inline-block;
     margin: 0 19px;
@@ -121,6 +243,14 @@ body {
     }
     &:last-of-type {
       margin-right: 0;
+    }
+    @include screen-style(phone) {
+      width: calc(100% / 4);
+      margin: 0;
+    }
+    @include screen-style(minPhone) {
+      width: calc(100% / 3);
+      margin: 0;
     }
   }
   &__link {
@@ -134,6 +264,9 @@ body {
     }
     &--active {
       font-weight: 500;
+    }
+    @include screen-style(minPhone) {
+      padding: 6px;
     }
   }
 }
@@ -161,6 +294,10 @@ body {
     border: 2px solid rgba($color: #DADADA, $alpha: .3);
     border-radius: 50%;
     transform: translateY(-50%);
+    @include screen-style(minPhone) {
+      width: 30px;
+      height: 30px;
+    }
     cursor: pointer;
     &:hover {
       border: 2px solid rgba($color: #DADADA, $alpha: .6);
@@ -175,6 +312,10 @@ body {
   &__svg {
     width: 30px;
     height: 30px;
+    @include screen-style(minPhone) {
+      width: 100%;
+      height: 100%;
+    }
   }
   &__wrapper {
     display: flex;
@@ -182,8 +323,16 @@ body {
     align-items: center;
     justify-content: space-between;
     padding-top: 75px;
-    padding-bottom: 56px;
+    padding-bottom: 60px;
     color: #ffffff;
+    @include screen-style(phone) {
+      padding-top: 32px;
+      padding-bottom: 40px;
+    }
+    @include screen-style(minPhone) {
+      padding-top: 32px;
+      padding-bottom: 40px;
+    }
   }
   &__btn {
     padding: 10px 28px;
@@ -192,11 +341,20 @@ body {
     font-weight: 500;
     background-color: $colorRed;
     border-radius: 30px;
+    &:hover {
+      background-color: darken($colorRed, 10);
+    }
   }
   &__title {
     order: 1;
     font-size: 36px;
     font-weight: 500;
+    @include screen-style(phone) {
+      font-size: 24px;
+    }
+    @include screen-style(minPhone) {
+      font-size: 24px;
+    }
   }
   &__subtitle {
     order: 2;
@@ -214,12 +372,30 @@ body {
   margin-bottom: 40px;
   justify-content: space-between;
   align-items: center;
+  @include screen-style(phone) {
+    flex-wrap: wrap;
+    height: auto;
+  }
+  @include screen-style(minPhone) {
+    flex-wrap: wrap;
+    height: auto;
+  }
 
   &__title {
     display: flex;
     font-size: 18px;
     font-weight: 400;
     line-height: 30px;
+    @include screen-style(phone) {
+      margin-bottom: 16px;
+      flex-basis: 100%;
+      flex-wrap: wrap;
+    }
+    @include screen-style(minPhone) {
+      margin-bottom: 16px;
+      flex-basis: 100%;
+      flex-wrap: wrap;
+    }
   }
 
   &__svg {
@@ -230,6 +406,14 @@ body {
 
   &__wrapper {
     height: 100%;
+    @include screen-style(phone) {
+      height: 40px;
+    }
+    @include screen-style(minPhone) {
+      height: 40px;
+      margin: 0 auto;
+      margin-bottom: 16px;
+    }
   }
 
   &__btn {
@@ -270,17 +454,46 @@ body {
     font-weight: 500;
     line-height: 14px;
   }
-  &__select {
-    margin-right: 20px;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cmask id='ic_arrow-down_mask0' mask-type='alpha' maskunits='userSpaceOnUse' x='0' y='0' width='8' height='5'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 3.99865L2.5 8H4.89613L2.38014 3.99865L5 0H2.5L0 3.99865Z' transform='translate%280 5%29 rotate%28-90%29' fill='white'%3E%3C/path%3E%3C/mask%3E%3Cg mask='url%28%23ic_arrow-down_mask0%29'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0H8V5H0V0Z' fill='%23D8D8D8'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
-    background-size: 8px 5px;
-    background-repeat: no-repeat;
-    background-position: 80% center;
+}
 
-    &:last-of-type {
-      margin: 0;
+
+.product-form {
+  display: flex;
+
+  &__select-wrapper {
+    position: relative;
+    display: inline-block;
+    height: inherit;
+    border: 2px solid #DADADA;
+    border-radius: 24px;
+    &:first-of-type {
+      margin-right: 10px;
     }
+  }
+
+  &__select {
+    height: 100%;
+    padding: 0 28px 0 14px;
+
+    border: none;
+    background-color: transparent;
+
+    color: #B2B2B2;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+
+    appearance: none;
+  }
+
+  &__svg {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 8px;
+    height: 5px;
+
+    transform: translateY(-50%);
   }
 }
 
@@ -288,16 +501,42 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  @include screen-style(tablet) {
+    margin-bottom: 32px;
+    justify-content: center;
+  }
+  @include screen-style(phone) {
+    margin-bottom: 32px;
+    justify-content: center;
+  }
+  @include screen-style(minPhone) {
+    margin-bottom: 32px;
+    justify-content: center;
+  }
 }
 
 .products-card {
   width: calc(25% - 24px);
+  min-width: 200px;
   margin-bottom: 32px;
   text-align: center;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, .05);
+  overflow: hidden;
+  @include screen-style(tablet) {
+    margin: 12px;
+    width: calc(100% / 3 - 24px);
+  }
+  @include screen-style(phone) {
+    margin: 12px;
+    width: calc(100% / 2 - 24px);
+  }
+  @include screen-style(minPhone) {
+    margin: 12px;
+    width: calc(100% - 24px);
+  }
 
   &__header {
-    padding: 24px;
+    padding: 14px;
     border-bottom: 2px solid #F5F5F5;
   }
 
@@ -309,12 +548,12 @@ body {
 
   &__link {
     display: block;
-    padding: 24px 0;
+    padding: 24px 0 18px 0;
   }
 
   &__img {
     max-height: 120px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   &__name {
@@ -322,10 +561,13 @@ body {
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &__footer {
-    padding: 24px;
+    padding: 16px;
     border-top: 2px solid #F5F5F5;
   }
 
@@ -340,7 +582,7 @@ body {
   display: block;
   padding: 16px 40px;
   margin: 0 auto;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
   background-color: transparent;
   border: 2px solid #EBEBEB;
   border-radius: 28px;
@@ -358,17 +600,44 @@ body {
 .subscribe {
   display: flex;
   padding: 18px 0;
-  margin-bottom: 48px;
+  margin-bottom: 44px;
   justify-content: center;
   align-items: center;
-  border-top: 2px solid #F5F5F5;
-  border-bottom: 2px solid #F5F5F5;
+  border-top: $borderTop;
+  border-bottom: $borderBottom;
+  @include screen-style(tablet) {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  @include screen-style(phone) {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  @include screen-style(minPhone) {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
 
   &__svg {
     width: 30px;
     height: 30px;
     &--open-mail {
       margin-right: 30px;
+      @include screen-style(tablet) {
+        min-width: 30px;
+        margin-right: 16px;
+      }
+      @include screen-style(phone) {
+        min-width: 30px;
+        margin-right: 16px;
+      }
+      @include screen-style(minPhone) {
+        min-width: 30px;
+        margin-right: 16px;
+      }
     }
   }
 
@@ -378,6 +647,22 @@ body {
     font-size: 14px;
     font-weight: 400;
     line-height: 25px;
+    @include screen-style(tablet) {
+      max-width: calc(100% - 46px);
+      margin-bottom: 16px;
+      line-height: 30px;
+    }
+    @include screen-style(phone) {
+      max-width: calc(100% - 46px);
+      margin-bottom: 16px;
+      line-height: 30px;
+    }
+    @include screen-style(minPhone) {
+      max-width: calc(100% - 46px);
+      margin-bottom: 16px;
+      margin-right: 0;
+      line-height: 30px;
+    }
   }
 
   &-form {
@@ -388,6 +673,18 @@ body {
     align-items: center;
     border: 2px solid #EBEBEB;
     border-radius: 28px;
+    @include screen-style(tablet) {
+      position: relative;
+      min-width: 100%;
+    }
+    @include screen-style(phone) {
+      position: relative;
+      min-width: 100%;
+    }
+    @include screen-style(minPhone) {
+      position: relative;
+      min-width: 100%;
+    }
 
     &__input {
       width: 130px;
@@ -403,6 +700,15 @@ body {
         color: inherit;
         font-size: inherit;
         font-weight: inherit;
+      }
+      @include screen-style(tablet) {
+        min-width: calc(100% - 54px);
+      }
+      @include screen-style(phone) {
+        min-width: calc(100% - 54px);
+      }
+      @include screen-style(minPhone) {
+        min-width: calc(100% - 54px);
       }
     }
 
@@ -421,6 +727,21 @@ body {
         background-color: transparent;
         border: 2px solid #EBEBEB;
       }
+      @include screen-style(tablet) {
+        position: absolute;
+        right: 2px;
+        height: calc(100% - 4px);
+      }
+      @include screen-style(phone) {
+        position: absolute;
+        right: 2px;
+        height: calc(100% - 4px);
+      }
+      @include screen-style(minPhone) {
+        position: absolute;
+        right: 2px;
+        height: calc(100% - 4px);
+      }
     }
   }
 }
@@ -435,8 +756,11 @@ body {
   &__title {
     display: flex;
     padding: 0 16px;
-    margin-bottom: 40px;
+    margin-bottom: 44px;
     align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
   }
 
   &__svg {
@@ -448,22 +772,46 @@ body {
   &__container {
     display: flex;
     justify-content: space-between;
+    @include screen-style(tablet) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    @include screen-style(phone) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    @include screen-style(minPhone) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   }
 
   &-card {
     margin: 0;
+    @include screen-style(tablet) {
+      margin: 0 12px;
+      margin-bottom: 32px;
+    }
+    @include screen-style(phone) {
+      margin: 0 12px;
+      margin-bottom: 32px;
+    }
 
     &__link {
       display: flex;
       width: 100%;
       height: 100%;
-      padding: 20px;
+      padding: 32px 10px;
       align-items: center;
     }
 
     &__img-wrapper {
       width: 80px;
       height: 60px;
+      @include screen-style(minPhone) {
+        height: 80px;
+        margin-right: 24px;
+      }
     }
 
     &__img {
@@ -484,6 +832,16 @@ body {
       font-size: 14px;
       font-weight: 400;
       line-height: 24px;
+      @include screen-style(tablet) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      @include screen-style(phone) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
 
     &__price {
@@ -504,7 +862,23 @@ body {
     display: flex;
     width: 1080px;
     margin: 0 auto;
-    margin-bottom: 32px;
+    margin-bottom: 26px;
+    @include screen-style(hd1024) {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    @include screen-style(tablet) {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    @include screen-style(phone) {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    @include screen-style(minPhone) {
+      width: 100%;
+      flex-wrap: wrap;
+    }
   }
 
   &__wrapper {
@@ -513,6 +887,27 @@ body {
     &:last-of-type {
       min-width: auto;
       margin: 0;
+    }
+    @include screen-style(tablet) {
+      width: 45%;
+      margin: 0;
+      margin-bottom: 16px;
+      &:nth-of-type(odd) {
+        margin-right: 64px;
+      }
+    }
+    @include screen-style(phone) {
+      width: 70%;
+      margin: 0;
+      margin-bottom: 16px;
+      &:nth-of-type(odd) {
+        margin-right: 0;
+      }
+    }
+    @include screen-style(minPhone) {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 16px;
     }
   }
 
@@ -524,11 +919,14 @@ body {
 
   &__caption-list {
     display: flex;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     align-items: center;
     font-size: 14px;
     font-weight: 500;
     line-height: 24px;
+    &--statistic {
+      margin-bottom: 14px;
+    }
   }
 
   &__list {
@@ -537,12 +935,17 @@ body {
     padding-left: 50px;
     flex-direction: column;
     flex-wrap: wrap;
+    @include screen-style(minPhone) {
+      width: 100%;
+      max-height: 100%;
+    }
   }
 
   &__item {
     margin-bottom: 10px;
     &--statistic {
       display: flex;
+      margin-bottom: 0;
       align-items: center;
     }
   }

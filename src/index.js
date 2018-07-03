@@ -1,13 +1,14 @@
-import './js/script1.js';
-import './js/script2.js';
-console.log('Hello world!');
+// Проверка работоспособности сборки скрипта
+console.log('Hello world! Scripts work');
 
-// Здесь список всех используемых SVG-файлов
-import './sprite-list.js';
+// Импорт списка svg-иконок для спрайта
+import './js/_sprite-list';
 
 // Импорт списка изображений товаров
-import './products-list.js';
+import './js/_products-list';
 
+// Импорт основного файла разметки для сборки
 import './index.pug';
-// import './index.haml';
+
+// Импорт основного файла стилей для сборки
 import './scss/style.scss';
