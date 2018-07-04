@@ -21,18 +21,3 @@ mixin viewProduct(srcImg, alt, nameProduct, priceProduct)
       .view-products-card__inner-text
         h3.view-products-card__name= nameProduct
         span.view-products-card__price= '$ ' + priceProduct
-
-
-//- mixin person(name, position, about, src, alt)
-//-   li.person__item
-//-     img.person__art(src=src, alt=alt)
-//-     p.person__name= name
-//-     p.person__position= position
-//-     p.person__about= about
-
-//- mixin section
-//-   section&attributes(attributes)
-//-     include menu.pug
-//-     include social.pug
-//-     div(class!=attributes.class + '__container')
-//-       block

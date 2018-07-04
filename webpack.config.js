@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const $ = require('jquery');
 
 const SvgStore = require('webpack-svgstore-plugin');
 
@@ -45,7 +46,6 @@ module.exports = {
         }
       },
 
-
       // Правило для SCSS-файлов
       {
         test: /\.scss$/,
@@ -68,12 +68,13 @@ module.exports = {
 
       // Правило для файлов изображений
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|jpeg|gif)$/,
         loader: 'file-loader',
         options: {
           name: './css/img/[name].[ext]'
         }
       },
+
       // Правило для обработки файлов шрифтов
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -89,6 +90,12 @@ module.exports = {
   plugins: [
     // Очистка директории выхода
     new CleanWebpackPlugin(['dist']),
+    // Подключаем jQuery
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    }),
     // Экспорт стилей
     new ExtractTextPlugin({filename: './style.css'}),
     // Настройка обработчика HTML
@@ -104,7 +111,5 @@ module.exports = {
         class: 'visually-hidden'
       }
     })
-
   ]
-
 };

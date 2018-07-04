@@ -13,27 +13,35 @@ html(lang="en")
       nav.main-header__nav
         .user-nav
           form.search
-            //- input.search__submit.sprite-h-search(type="submit" value="Поиск" name="s" title="Search this!")
             button.search__submit(type="submit" value="Поиск" name="s" title="Search this!")
               svg.search__svg
                   use(xlink:href="#icon_search")
             input.search__text(type="text" placeholder="Search goods...")
           a.logo(href="/") Go Home
           ul.user
+            li.user__item.user__item--categories
+              svg.user__svg
+                use(xlink:href="#icon_compare")
+              ul.user-categories
+                .user-categories__content
+                  +listItems("user-categories", "#", "Electronics")
+                  +listItems("user-categories", "#", "Appliances")
+                  +listItems("user-categories", "#", "Children's goods")
+                  +listItems("user-categories", "#", "Repairs")
+                  +listItems("user-categories", "#", "Clothes")
+                  +listItems("user-categories", "#", "Footwear")
+                  +listItems("user-categories", "#", "Beauty")
             li.user__item
-              //- a.user__link.sprite.sprite-h-favorite(href="#") Favorite
               a.user__link(href="#")
                 svg.user__svg
                   use(xlink:href="#icon_favorite")
                 | Favorite
             li.user__item
-              //- a.user__link.sprite.sprite-h-compare(href="#") Compare
               a.user__link(href="#")
                 svg.user__svg
                   use(xlink:href="#icon_compare")
                 | Compare
             li.user__item
-              //- a.user__link.sprite.sprite-h-cart(href="#") Cart
               a.user__link(href="#")
                 svg.user__svg
                   use(xlink:href="#icon_cart")
@@ -54,19 +62,50 @@ html(lang="en")
       h2.content__title.visually-hidden
         | Content zone
       section.promo-card
-        button.promo-card__arrow.promo-card__arrow--back(type="button")
-          svg.promo-card__svg
-            use(xlink:href="#icon_arrow_back")
-        button.promo-card__arrow.promo-card__arrow--forward(type="button")
-          svg.promo-card__svg
-              use(xlink:href="#icon_arrow_forward")
-        .promo-card__wrapper
-          h3.promo-card__title
-            | The Best Place to Play
-          a.promo-card__btn(href="#")
-            | Badge
-          p.promo-card__subtitle
-            | space the final frontier
+        .promo-card__content.owl-carousel.owl-theme
+          //- .promo-card__controll
+          //-   button.promo-card__arrow.promo-card__arrow--back(type="button")
+          //-     svg.promo-card__svg
+          //-       use(xlink:href="#icon_arrow_back")
+          //-   button.promo-card__arrow.promo-card__arrow--forward(type="button")
+          //-     svg.promo-card__svg
+          //-         use(xlink:href="#icon_arrow_forward")
+          .promo-card__item
+            img.promo-card__img(src="./css/img/promo-card-bg.jpg")
+            .promo-card__wrapper
+              h3.promo-card__title
+                | The Best Place to Play
+              a.promo-card__btn(href="#")
+                | Badge
+              p.promo-card__subtitle
+                | space the final frontier
+          .promo-card__item
+            img.promo-card__img(src="./css/img/promo-card-bg.jpg")
+            .promo-card__wrapper
+              h3.promo-card__title
+                | The Best Place to Play
+              a.promo-card__btn(href="#")
+                | Badge
+              p.promo-card__subtitle
+                | space the final frontier
+          .promo-card__item
+            img.promo-card__img(src="./css/img/promo-card-bg.jpg")
+            .promo-card__wrapper
+              h3.promo-card__title
+                | The Best Place to Play
+              a.promo-card__btn(href="#")
+                | Badge
+              p.promo-card__subtitle
+                | space the final frontier
+        .owl-nav
+          .owl-prev
+            button.promo-card__arrow.promo-card__arrow--back(type="button")
+              svg.promo-card__svg
+                use(xlink:href="#icon_arrow_back")
+          .owl-next
+            button.promo-card__arrow.promo-card__arrow--forwar(type="button")
+              svg.promo-card__svg
+                use(xlink:href="#icon_arrow_forward")
 
       section.product
         .product-header

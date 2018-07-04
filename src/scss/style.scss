@@ -1,5 +1,7 @@
 @import "./fonts";
 @import "./global";
+@import "./vendor/owl/owl.carousel.min.css";
+@import "./vendor/owl/owl.theme.default.min.css";
 @import "./variables";
 @import "./mixin";
 
@@ -11,18 +13,6 @@ body {
     font-family: inherit;
     color: #808080;
   }
-  @include screen-style(hd1024) {
-    padding: 0 8px;
-  }
-  @include screen-style(tablet) {
-    padding: 0 8px;
-  }
-  @include screen-style(phone) {
-    padding: 0 8px;
-  }
-  @include screen-style(minPhone) {
-    padding: 0 8px;
-  }
 }
 
 .main-header {
@@ -30,6 +20,9 @@ body {
   &__nav {
     display: flex;
     flex-direction: column;
+    @include screen-style(minPhone) {
+      border-bottom: $borderBottom;
+    }
   }
 }
 
@@ -42,7 +35,6 @@ body {
   padding-bottom: 18px;
   justify-content: space-between;
   align-items: center;
-
   @include screen-style(hd1024) {
     width: 100%;
   }
@@ -155,25 +147,31 @@ body {
 }
 
 .user {
+  position: relative;
   display: flex;
   padding-right: 5px;
   align-items: center;
   @include screen-style(tablet) {
+    padding: 0;
     order: 2;
     flex-basis: 100%;
   }
   @include screen-style(phone) {
+    padding: 0;
     order: 2;
     flex-basis: 100%;
+    justify-content: flex-end;
   }
   @include screen-style(minPhone) {
+    padding: 0;
     order: 2;
     flex-basis: 100%;
+    justify-content: flex-end;
   }
   &__item {
     display: inline-block;
     margin-left: 12px;
-    &:first-of-type {
+    &:nth-of-type(2) {
       margin-left: 0;
     }
     &--user {
@@ -181,10 +179,10 @@ body {
         margin-left: auto;
       }
       @include screen-style(phone) {
-        margin-left: auto;
+        margin-left: 12px;
       }
       @include screen-style(minPhone) {
-        margin-left: auto;
+        margin-left: 0;
       }
     }
   }
@@ -199,6 +197,9 @@ body {
     &:hover {
       color: #808080;
     }
+    @include screen-style(minPhone) {
+      font-size: 0;
+    }
     &--user {
       padding: 0;
       width: 40px;
@@ -212,12 +213,54 @@ body {
     position: absolute;
     left: 0;
     top: 50%;
-
     width: 30px;
     height: 30px;
-
     transform: translateY(-50%);
   }
+}
+
+.user-categories {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 2;
+  display: none;
+  &__content {
+    display: flex;
+    width: 140px;
+    flex-direction: column;
+    background-color: #F5F5F5;
+    border: 2px solid #DADADA;
+  }
+  &__link {
+    display: block;
+    padding: 8px 5px;
+    &:hover {
+      background-color: #DADADA;
+    }
+  }
+}
+
+.user__item--categories {
+  position: relative;
+  display: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: all .5s;
+  @include screen-style(phone) {
+    display: inline-block;
+    margin-right: auto;
+  }
+  @include screen-style(minPhone) {
+    display: inline-block;
+    margin-right: auto;
+  }
+}
+
+.user-categories--active {
+  display: block;
+  transition: all .5s;
 }
 
 .categories {
@@ -226,6 +269,12 @@ body {
   border-top: $borderTop;
   border-bottom: $borderBottom;
   text-align: center;
+  @include screen-style(phone) {
+    display: none;
+  }
+  @include screen-style(minPhone) {
+    display: none;
+  }
   &__content {
     max-width: 1440px;
     margin: 0 auto;
@@ -296,31 +345,32 @@ body {
   height: 330px;
   margin-bottom: 40px;
   justify-content: center;
-  background-image: url("../img/promo-card-bg.jpg");
+  &__item {
+    position: relative;
+    height: 330px;
+    background-image: url("../img/promo-card-bg.jpg");
+  }
+  // Arrow btn of slider controller
   &__arrow {
-    position: absolute;
-    top: 50%;
-    display: block;
-    width: 60px;
-    height: 60px;
+    width: 100%;
+    height: 100%;
     background-color: transparent;
-    border: 2px solid rgba($color: #DADADA, $alpha: .3);
+    border: none;
     border-radius: 50%;
-    transform: translateY(-50%);
     @include screen-style(minPhone) {
       width: 30px;
       height: 30px;
     }
     &:hover {
-      border: 2px solid rgba($color: #DADADA, $alpha: .6);
-    }
-    &--back {
-      left: 24px;
-    }
-    &--forward {
-      right: 24px;
+      border: none;
     }
   }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
   &__svg {
     width: 30px;
     height: 30px;
@@ -329,14 +379,20 @@ body {
       height: 100%;
     }
   }
+
   &__wrapper {
+    position: absolute;
+    top: 0;
+    left: 50%;
     display: flex;
+    height: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding-top: 75px;
     padding-bottom: 60px;
     color: #ffffff;
+    transform: translateX(-50%);
     @include screen-style(phone) {
       padding-top: 32px;
       padding-bottom: 40px;
@@ -346,6 +402,7 @@ body {
       padding-bottom: 40px;
     }
   }
+
   &__btn {
     padding: 10px 28px;
     order: 0;
@@ -357,6 +414,7 @@ body {
       background-color: darken($colorRed, 10);
     }
   }
+
   &__title {
     order: 1;
     font-size: 36px;
@@ -368,6 +426,7 @@ body {
       font-size: 24px;
     }
   }
+
   &__subtitle {
     order: 2;
     opacity: .6;
@@ -377,6 +436,41 @@ body {
     text-transform: capitalize;
   }
 }
+
+/*---------OWL-CUSTOMIZE---------*/
+
+.owl-prev,
+.owl-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: 2px solid rgba($color: #DADADA, $alpha: .3);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: border .3s;
+  @include screen-style(minPhone) {
+    width: 30px;
+    height: 30px;
+  }
+  &:hover {
+    border: 2px solid rgba($color: #DADADA, $alpha: .6);
+  }
+}
+
+.owl {
+  &-prev {
+    left: 24px;
+  }
+  &-next {
+    right: 24px;
+  }
+}
+
+/*-----END-OWL-CUSTOMIZE---------*/
 
 .product-header {
   display: flex;
@@ -402,6 +496,7 @@ body {
       margin-bottom: 16px;
       flex-basis: 100%;
       flex-wrap: wrap;
+      justify-content: center;
     }
     @include screen-style(minPhone) {
       margin-bottom: 16px;
@@ -433,7 +528,6 @@ body {
     height: inherit;
     background-color: transparent;
     border: 2px solid #DADADA;
-
     color: #B2B2B2;
     font-size: 12px;
     font-weight: 500;
@@ -459,7 +553,6 @@ body {
     background-color: transparent;
     border: 2px solid #DADADA;
     border-radius: 24px;
-
     color: #B2B2B2;
     font-size: 12px;
     font-weight: 500;
@@ -470,7 +563,6 @@ body {
 
 .product-form {
   display: flex;
-
   &__select-wrapper {
     position: relative;
     display: inline-block;
@@ -485,15 +577,12 @@ body {
   &__select {
     height: 100%;
     padding: 0 28px 0 14px;
-
     border: none;
     background-color: transparent;
-
     color: #B2B2B2;
     font-size: 12px;
     font-weight: 500;
     line-height: 14px;
-
     cursor: pointer;
     appearance: none;
   }
@@ -504,7 +593,6 @@ body {
     right: 15px;
     width: 8px;
     height: 5px;
-
     transform: translateY(-50%);
   }
 }
@@ -598,8 +686,6 @@ body {
   background-color: transparent;
   border: 2px solid #EBEBEB;
   border-radius: 28px;
-
-
   color: #B2B2B2;
   font-size: 14px;
   font-weight: 500;
@@ -655,7 +741,6 @@ body {
 
   &__caption {
     margin-right: 70px;
-
     font-size: 14px;
     font-weight: 400;
     line-height: 25px;
@@ -667,6 +752,7 @@ body {
     @include screen-style(phone) {
       max-width: calc(100% - 46px);
       margin-bottom: 16px;
+      margin-right: 0;
       line-height: 30px;
     }
     @include screen-style(minPhone) {
@@ -703,7 +789,6 @@ body {
       height: 100%;
       padding: 8px;
       border: none;
-
       color: #B2B2B2;
       font-size: 12px;
       font-weight: 500;
@@ -730,7 +815,6 @@ body {
       background-color: #F5F5F5;
       border: 2px solid transparent;
       border-radius: 28px;
-
       color: #999999;
       font-size: 12px;
       font-weight: 500;
@@ -772,6 +856,12 @@ body {
     font-size: 18px;
     font-weight: 400;
     line-height: 30px;
+    @include screen-style(phone) {
+      justify-content: center;
+    }
+    @include screen-style(minPhone) {
+      justify-content: center;
+    }
   }
 
   &__svg {
@@ -805,7 +895,10 @@ body {
     }
     @include screen-style(phone) {
       margin: 0 12px;
-      margin-bottom: 32px;
+      margin-bottom: 16px;
+    }
+    @include screen-style(minPhone) {
+      margin-bottom: 16px;
     }
 
     &__link {
@@ -987,12 +1080,10 @@ body {
 }
 
 .more-links {
-
   display: block;
   padding: 32px 0;
   border-top: 2px solid #F5F5F5;
   text-align: center;
-
   &__link {
     margin: 0 20px;
     color: #B2B2B2;
@@ -1003,5 +1094,4 @@ body {
       color: #808080;
     }
   }
-
 }
