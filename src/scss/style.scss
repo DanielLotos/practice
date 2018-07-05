@@ -7,11 +7,11 @@
 
 body {
   font-family: 'Roboto', $font-fallback, serif;
-  color: #808080;
+  color: $gray-d3;
   font-size: 14px;
   & a {
     font-family: inherit;
-    color: #808080;
+    color: $gray-d3;
   }
 }
 
@@ -20,6 +20,9 @@ body {
   &__nav {
     display: flex;
     flex-direction: column;
+    @include screen-style(phone) {
+      border-bottom: $borderBottom;
+    }
     @include screen-style(minPhone) {
       border-bottom: $borderBottom;
     }
@@ -59,7 +62,7 @@ body {
   height: 50px;
   padding: 0 20px;
   align-items: center;
-  border: 2px solid #f5f5f5;
+  border: 2px solid $gray-l1;
   border-radius: 28px;
   @include screen-style(tablet) {
     margin-bottom: 16px;
@@ -94,7 +97,7 @@ body {
     padding-left: 30px;
     border: none;
     font-size: 12px;
-    color: #B2B2B2;
+    color: $gray-d1;
     &::placeholder {
       color: inherit;
       font-size: inherit;
@@ -115,7 +118,7 @@ body {
   border-radius: 50%;
   font-size: 0;
   &:hover {
-    background-color: #DADADA;
+    background-color: $gray-l3;
   }
   @include screen-style(tablet) {
     position: relative;
@@ -190,12 +193,12 @@ body {
     position: relative;
     display: inline-block;
     padding-left: 40px;
-    color: #999999;
+    color: $gray-d2;
     font-size: 13px;
     font-weight: 400;
     line-height: 30px;
     &:hover {
-      color: #808080;
+      color: $gray-d3;
     }
     @include screen-style(minPhone) {
       font-size: 0;
@@ -219,6 +222,7 @@ body {
   }
 }
 
+// Start dropdown categories list
 .user-categories {
   position: absolute;
   top: 0;
@@ -229,14 +233,15 @@ body {
     display: flex;
     width: 140px;
     flex-direction: column;
-    background-color: #F5F5F5;
-    border: 2px solid #DADADA;
+    background-color: #ffffff;
+    border: 2px solid $gray-l1;
+    border-radius: 0 8px 8px 8px;
   }
   &__link {
     display: block;
     padding: 8px 5px;
     &:hover {
-      background-color: #DADADA;
+      background-color: $gray-l2;
     }
   }
 }
@@ -262,6 +267,8 @@ body {
   display: block;
   transition: all .5s;
 }
+
+// End dropdown categories list
 
 .categories {
   padding: 21px 0;
@@ -319,10 +326,10 @@ body {
     display: block;
     font-size: 13px;
     line-height: 20px;
-    color: #999999;
+    color: $gray-d2;
     font-weight: 400;
     &:hover {
-      color: #808080;
+      color: $gray-d3;
     }
     &--active {
       font-weight: 500;
@@ -367,7 +374,7 @@ body {
   }
 
   &__img {
-    width: 100%;
+    width: auto !important;
     height: 100%;
   }
 
@@ -398,6 +405,7 @@ body {
       padding-bottom: 40px;
     }
     @include screen-style(minPhone) {
+      width: 100%;
       padding-top: 32px;
       padding-bottom: 40px;
     }
@@ -439,6 +447,16 @@ body {
 
 /*---------OWL-CUSTOMIZE---------*/
 
+.owl-nav {
+  @include screen-style(minPhone) {
+    display: none;
+  }
+}
+
+.owl-dots {
+  display: none !important;
+}
+
 .owl-prev,
 .owl-next {
   position: absolute;
@@ -448,7 +466,7 @@ body {
   width: 60px;
   height: 60px;
   background-color: transparent;
-  border: 2px solid rgba($color: #DADADA, $alpha: .3);
+  border: 2px solid rgba($color: $gray-l3, $alpha: .3);
   border-radius: 50%;
   transform: translateY(-50%);
   transition: border .3s;
@@ -457,7 +475,7 @@ body {
     height: 30px;
   }
   &:hover {
-    border: 2px solid rgba($color: #DADADA, $alpha: .6);
+    border: 2px solid rgba($color: $gray-l3, $alpha: .6);
   }
 }
 
@@ -479,10 +497,12 @@ body {
   justify-content: space-between;
   align-items: center;
   @include screen-style(phone) {
+    padding: 0 3px;
     flex-wrap: wrap;
     height: auto;
   }
   @include screen-style(minPhone) {
+    padding: 0 3px;
     flex-wrap: wrap;
     height: auto;
   }
@@ -502,6 +522,7 @@ body {
       margin-bottom: 16px;
       flex-basis: 100%;
       flex-wrap: wrap;
+      justify-content: center;
     }
   }
 
@@ -527,13 +548,13 @@ body {
     padding: 0 16px;
     height: inherit;
     background-color: transparent;
-    border: 2px solid #DADADA;
-    color: #B2B2B2;
+    border: 2px solid $gray-l3;
+    color: $gray-d1;
     font-size: 12px;
     font-weight: 500;
     line-height: 14px;
     &:hover {
-      background-color: #EBEBEB;
+      background-color: $gray-l2;
     }
     &:first-of-type {
       border-right: none;
@@ -551,15 +572,14 @@ body {
     padding: 0 16px;
     height: inherit;
     background-color: transparent;
-    border: 2px solid #DADADA;
+    border: 2px solid $gray-l3;
     border-radius: 24px;
-    color: #B2B2B2;
+    color: $gray-d1;
     font-size: 12px;
     font-weight: 500;
     line-height: 14px;
   }
 }
-
 
 .product-form {
   display: flex;
@@ -567,7 +587,7 @@ body {
     position: relative;
     display: inline-block;
     height: inherit;
-    border: 2px solid #DADADA;
+    border: 2px solid $gray-l3;
     border-radius: 24px;
     &:first-of-type {
       margin-right: 10px;
@@ -579,7 +599,7 @@ body {
     padding: 0 28px 0 14px;
     border: none;
     background-color: transparent;
-    color: #B2B2B2;
+    color: $gray-d1;
     font-size: 12px;
     font-weight: 500;
     line-height: 14px;
@@ -598,20 +618,22 @@ body {
 }
 
 .products {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  @include screen-style(tablet) {
-    margin-bottom: 32px;
-    justify-content: center;
-  }
-  @include screen-style(phone) {
-    margin-bottom: 32px;
-    justify-content: center;
-  }
-  @include screen-style(minPhone) {
-    margin-bottom: 32px;
-    justify-content: center;
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include screen-style(tablet) {
+      margin-bottom: 32px;
+      justify-content: center;
+    }
+    @include screen-style(phone) {
+      margin-bottom: 32px;
+      justify-content: center;
+    }
+    @include screen-style(minPhone) {
+      margin-bottom: 32px;
+      justify-content: center;
+    }
   }
 }
 
@@ -637,7 +659,7 @@ body {
 
   &__header {
     padding: 14px;
-    border-bottom: 2px solid #F5F5F5;
+    border-bottom: 2px solid $gray-l1;
   }
 
   &__category {
@@ -668,7 +690,7 @@ body {
 
   &__footer {
     padding: 16px;
-    border-top: 2px solid #F5F5F5;
+    border-top: 2px solid $gray-l1;
   }
 
   &__price {
@@ -684,39 +706,45 @@ body {
   margin: 0 auto;
   margin-bottom: 36px;
   background-color: transparent;
-  border: 2px solid #EBEBEB;
+  border: 2px solid $gray-l2;
   border-radius: 28px;
-  color: #B2B2B2;
+  color: $gray-d1;
   font-size: 14px;
   font-weight: 500;
   text-transform: capitalize;
   &:hover {
-    background-color: #EBEBEB;
+    background-color: $gray-l2;
   }
 }
 
 .subscribe {
-  display: flex;
-  padding: 18px 0;
   margin-bottom: 44px;
-  justify-content: center;
-  align-items: center;
   border-top: $borderTop;
   border-bottom: $borderBottom;
-  @include screen-style(tablet) {
-    flex-wrap: wrap;
-    align-items: flex-start;
+
+  &__content {
+    display: flex;
+    padding: 18px 0;
     justify-content: center;
-  }
-  @include screen-style(phone) {
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
-  }
-  @include screen-style(minPhone) {
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    @include screen-style(tablet) {
+      padding: 18px 4px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    @include screen-style(phone) {
+      padding: 18px 4px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    @include screen-style(minPhone) {
+      padding: 18px 4px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+    }
   }
 
   &__svg {
@@ -745,8 +773,9 @@ body {
     font-weight: 400;
     line-height: 25px;
     @include screen-style(tablet) {
-      max-width: calc(100% - 46px);
-      margin-bottom: 16px;
+      max-width: calc(50% - 46px);
+      margin-right: 20px;
+      margin-bottom: 0;
       line-height: 30px;
     }
     @include screen-style(phone) {
@@ -769,11 +798,12 @@ body {
     padding: 2px;
     padding-left: 20px;
     align-items: center;
-    border: 2px solid #EBEBEB;
+    border: 2px solid $gray-l2;
     border-radius: 28px;
     @include screen-style(tablet) {
       position: relative;
-      min-width: 100%;
+      min-width: 300px;
+      max-width: 350px;
     }
     @include screen-style(phone) {
       position: relative;
@@ -789,7 +819,7 @@ body {
       height: 100%;
       padding: 8px;
       border: none;
-      color: #B2B2B2;
+      color: $gray-d1;
       font-size: 12px;
       font-weight: 500;
       line-height: 100%;
@@ -812,15 +842,15 @@ body {
     &__btn {
       height: 100%;
       padding: 0 20px;
-      background-color: #F5F5F5;
+      background-color: $gray-l1;
       border: 2px solid transparent;
       border-radius: 28px;
-      color: #999999;
+      color: $gray-d2;
       font-size: 12px;
       font-weight: 500;
       &:hover {
         background-color: transparent;
-        border: 2px solid #EBEBEB;
+        border: 2px solid $gray-l2;
       }
       @include screen-style(tablet) {
         position: absolute;
@@ -847,7 +877,6 @@ body {
   margin: 0 auto;
   margin-bottom: 60px;
   flex-direction: column;
-
   &__title {
     display: flex;
     padding: 0 16px;
@@ -950,7 +979,7 @@ body {
 
     &__price {
       display: block;
-      color: #B2B2B2;
+      color: $gray-d1;
       font-size: 14px;
       font-weight: 500;
       line-height: 24px;
@@ -959,7 +988,7 @@ body {
 }
 
 .main-footer {
-  border-top: 2px solid #F5F5F5;
+  border-top: 2px solid $gray-l1;
   padding-top: 40px;
 
   &__nav {
@@ -969,18 +998,22 @@ body {
     margin-bottom: 26px;
     @include screen-style(hd1024) {
       width: 100%;
+      padding: 0 5px;
       flex-wrap: wrap;
     }
     @include screen-style(tablet) {
       width: 100%;
+      padding: 0 5px;
       flex-wrap: wrap;
     }
     @include screen-style(phone) {
       width: 100%;
+      padding: 0 5px;
       flex-wrap: wrap;
     }
     @include screen-style(minPhone) {
       width: 100%;
+      padding: 0 5px;
       flex-wrap: wrap;
     }
   }
@@ -993,24 +1026,21 @@ body {
       margin: 0;
     }
     @include screen-style(tablet) {
-      width: 45%;
+      width: calc(100% / 3);
       margin: 0;
+      margin-right: 0;
       margin-bottom: 16px;
-      &:nth-of-type(odd) {
-        margin-right: 64px;
-      }
     }
     @include screen-style(phone) {
-      width: 70%;
+      width: calc(100% / 2);
       margin: 0;
+      margin-right: 0;
       margin-bottom: 16px;
-      &:nth-of-type(odd) {
-        margin-right: 0;
-      }
     }
     @include screen-style(minPhone) {
       width: 100%;
       margin: 0;
+      margin-right: 0;
       margin-bottom: 16px;
     }
   }
@@ -1039,6 +1069,12 @@ body {
     padding-left: 50px;
     flex-direction: column;
     flex-wrap: wrap;
+    @include screen-style(tablet) {
+      max-height: 100%;
+    }
+    @include screen-style(phone) {
+      max-height: 100%;
+    }
     @include screen-style(minPhone) {
       width: 100%;
       max-height: 100%;
@@ -1056,7 +1092,7 @@ body {
 
   &__statistic-value {
     margin-right: 10px;
-    color: #808080;
+    color: $gray-d3;
     font-size: 16px;
     font-weight: 500;
     line-height: 32px;
@@ -1069,12 +1105,12 @@ body {
   }
 
   &__link {
-    color: #B2B2B2;
+    color: $gray-d1;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
     &:hover {
-      color: #808080;
+      color: $gray-d3;
     }
   }
 }
@@ -1082,16 +1118,22 @@ body {
 .more-links {
   display: block;
   padding: 32px 0;
-  border-top: 2px solid #F5F5F5;
+  border-top: 2px solid $gray-l1;
   text-align: center;
   &__link {
     margin: 0 20px;
-    color: #B2B2B2;
+    color: $gray-d1;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
     &:hover {
-      color: #808080;
+      color: $gray-d3;
+    }
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &:last-of-type {
+      margin-right: 0;
     }
   }
 }

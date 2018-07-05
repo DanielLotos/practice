@@ -9,5 +9,14 @@ $font-fallback: system,
 
 $blueLogo: #0078FF;
 $colorRed: #FF004F;
-$borderTop: 2px solid #F5F5F5;
-$borderBottom: 2px solid #EBEBEB;
+
+// Collection of grey color
+$gray-l1: #F5F5F5;
+$gray-l2: #EBEBEB;
+$gray-l3: #DADADA;
+$gray-d1: #B2B2B2;
+$gray-d2: #999999;
+$gray-d3: #808080;
+
+$borderTop: 2px solid $gray-l1;
+$borderBottom: 2px solid $gray-l2;
