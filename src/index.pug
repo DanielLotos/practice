@@ -10,53 +10,55 @@ html(lang="en")
 
     header.main-header
       h1.main-header__title.visually-hidden Wellcome to Marketplace
-      nav.main-header__nav
-        .user-nav
-          form.search
-            button.search__submit(type="submit" value="Поиск" name="s" title="Search this!")
-              svg.search__svg
-                  use(xlink:href="#icon_search")
-            input.search__text(type="text" placeholder="Search goods...")
-          a.logo(href="/") Go Home
-          ul.user
-            li.user__item.user__item--categories
-              svg.user__svg
-                use(xlink:href="#icon_compare")
-              ul.user-categories
-                .user-categories__content
-                  +listItems("user-categories", "#", "Electronics")
-                  +listItems("user-categories", "#", "Appliances")
-                  +listItems("user-categories", "#", "Children's goods")
-                  +listItems("user-categories", "#", "Repairs")
-                  +listItems("user-categories", "#", "Clothes")
-                  +listItems("user-categories", "#", "Footwear")
-                  +listItems("user-categories", "#", "Beauty")
-            li.user__item
-              a.user__link(href="#")
-                svg.user__svg
-                  use(xlink:href="#icon_favorite")
-                | Favorite
-            li.user__item
-              a.user__link(href="#")
-                svg.user__svg
-                  use(xlink:href="#icon_compare")
-                | Compare
-            li.user__item
-              a.user__link(href="#")
-                svg.user__svg
-                  use(xlink:href="#icon_cart")
-                | Cart
-            li.user__item.user__item--user
-              a.user__link.user__link--user(href="#" title="My account") User
-        ul.categories
-          .categories__content
-            +listItems("categories", "#", "Electronics")
-            +listItems("categories", "#", "Appliances")
-            +listItems("categories", "#", "Children's goods")
-            +listItems("categories", "#", "Repairs")
-            +listItems("categories", "#", "Clothes")
-            +listItems("categories", "#", "Footwear")
-            +listItems("categories", "#", "Beauty")
+      .main-header__container
+        nav.main-header__nav
+          .user-nav
+            form.search
+              button.search__submit(type="submit" value="Поиск" name="s" title="Search this!")
+                svg.search__svg
+                    use(xlink:href="#icon_search")
+              input.search__text(type="text" placeholder="Search goods...")
+            a.logo(href="/") Go Home
+            ul.user
+              li.user__item.user__item--categories
+                .hamburger.hamburger--slider
+                  span.hamburger-box
+                    span.hamburger-inner
+                ul.user-categories
+                  .user-categories__content
+                    +listItems("user-categories", "#", "Electronics")
+                    +listItems("user-categories", "#", "Appliances")
+                    +listItems("user-categories", "#", "Children's goods")
+                    +listItems("user-categories", "#", "Repairs")
+                    +listItems("user-categories", "#", "Clothes")
+                    +listItems("user-categories", "#", "Footwear")
+                    +listItems("user-categories", "#", "Beauty")
+              li.user__item
+                a.user__link(href="#")
+                  svg.user__svg
+                    use(xlink:href="#icon_favorite")
+                  | Favorite
+              li.user__item
+                a.user__link(href="#")
+                  svg.user__svg
+                    use(xlink:href="#icon_compare")
+                  | Compare
+              li.user__item
+                a.user__link(href="#")
+                  svg.user__svg
+                    use(xlink:href="#icon_cart")
+                  | Cart
+              li.user__item.user__item--user
+                a.user__link.user__link--user(href="#" title="My account") User
+          ul.categories
+            .categories__content
+              +listItems("categories", "#", "Electronics")
+              +listItems("categories", "#", "Appliances")
+              +listItems("categories", "#", "Children's goods")
+              +listItems("categories", "#", "Repairs")
+              +listItems("categories", "#", "Clothes")
+              +listItems("categories", "#", "Footwear")
+              +listItems("categories", "#", "Beauty")
 
     main.content
       h2.content__title.visually-hidden
@@ -104,52 +106,54 @@ html(lang="en")
       //- Start product area
       section.product
         .product-header
-          h2.product-header__title
-            svg.product-header__svg
-              use(xlink:href="#icon_star")
-            | Interesting offers
-          .product-header__wrapper
-            button.product-header__btn
-              | Popular
-            button.product-header__btn
-              | Trending
-            button.product-header__btn
-              | New
-          form.product-header__wrapper.product-form
-            .product-form__select-wrapper
-              select.product-form__select(name="categories")
-                option(value="" hidden) Categories
-                option(value="Electronics") Electronics
-                option(value="Appleances") Appleances
-                option(value="Chilldren's goods") Chilldren's goods
-                option(value="Repairs") Repairs
-                option(value="Clothes") Clothes
-                option(value="Footwear") Footwear
-                option(value="Beauty") Beauty
-              svg.product-form__svg
-                use(xlink:href="#icon_arrow-down")
-            .product-form__select-wrapper
-              select.product-form__select(name="date")
-                option(value="" hidden) Date
-                option(value="Last week") Last week
-                option(value="Last 30 days") Last 30 days
-                option(value="Last 90 days") Last 90 days
-              svg.product-form__svg
-                use(xlink:href="#icon_arrow-down")
+          .product-header__content
+            h2.product-header__title
+              svg.product-header__svg
+                use(xlink:href="#icon_star")
+              | Interesting offers
+            .product-header__wrapper
+              button.product-header__btn
+                | Popular
+              button.product-header__btn
+                | Trending
+              button.product-header__btn
+                | New
+            form.product-header__wrapper.product-form
+              .product-form__select-wrapper
+                select.product-form__select(name="categories")
+                  option(value="" hidden) Categories
+                  option(value="Electronics") Electronics
+                  option(value="Appleances") Appleances
+                  option(value="Chilldren's goods") Chilldren's goods
+                  option(value="Repairs") Repairs
+                  option(value="Clothes") Clothes
+                  option(value="Footwear") Footwear
+                  option(value="Beauty") Beauty
+                svg.product-form__svg
+                  use(xlink:href="#icon_arrow-down")
+              .product-form__select-wrapper
+                select.product-form__select(name="date")
+                  option(value="" hidden) Date
+                  option(value="Last week") Last week
+                  option(value="Last 30 days") Last 30 days
+                  option(value="Last 90 days") Last 90 days
+                svg.product-form__svg
+                  use(xlink:href="#icon_arrow-down")
         //- Block with product cards
         .products
           .products__content
-            +productsItem('Recommend', 'asus-zenfone-go', 'Smartphone Asus ZenFone Go ZB452KG', 'Asus ZenFone Go ZB452KG', '384.4')
-            +productsItem('Bestseller', 'xiaomi-mi-band-2', 'Xiaomi Mi Band 2', 'Xiaomi Mi Band 2', '384.4')
-            +productsItem('Goods of the week', 'lg-43uh610v', 'LG 43UH610V', 'LG 43UH610V', '384.4')
-            +productsItem('Recommend', 'apple-imac-27-retina-5k', 'Apple iMac 27 Retina 5K', 'Apple iMac 27 Retina 5K', '384.4')
-            +productsItem('New product', 'lg-conditioner', 'LG Conditioner', 'LG Conditioner', '384.4')
-            +productsItem('Recommend', 'electrolux', 'Electrolux EZB 52410 AK', 'Electrolux EZB 52410 AK', '384.4')
-            +productsItem('Bestseller', 'beats-studio-wireles', 'Beats studio wireless', 'Beats studio wireless', '384.4')
-            +productsItem('Recommend', 'nikon-d3300', 'Nikon D3300 Kit', 'Nikon D3300 Kit', '384.4')
-        button.product__btn(type="button")
-          | show more
-      //- End droduct area
+            .products__list
+              +productsItem('Recommend', 'asus-zenfone-go', 'Smartphone Asus ZenFone Go ZB452KG', 'Asus ZenFone Go ZB452KG', '384.4')
+              +productsItem('Bestseller', 'xiaomi-mi-band-2', 'Xiaomi Mi Band 2', 'Xiaomi Mi Band 2', '384.4')
+              +productsItem('Goods of the week', 'lg-43uh610v', 'LG 43UH610V', 'LG 43UH610V', '384.4')
+              +productsItem('Recommend', 'apple-imac-27-retina-5k', 'Apple iMac 27 Retina 5K', 'Apple iMac 27 Retina 5K', '384.4')
+              +productsItem('New product', 'lg-conditioner', 'LG Conditioner', 'LG Conditioner', '384.4')
+              +productsItem('Recommend', 'electrolux', 'Electrolux EZB 52410 AK', 'Electrolux EZB 52410 AK', '384.4')
+              +productsItem('Bestseller', 'beats-studio-wireles', 'Beats studio wireless', 'Beats studio wireless', '384.4')
+              +productsItem('Recommend', 'nikon-d3300', 'Nikon D3300 Kit', 'Nikon D3300 Kit', '384.4')
+          button.product__btn(type="button")
+            | show more
+      //- End product area
     //- Subscribe block
     section.subscribe
       .subscribe__content
@@ -167,14 +171,15 @@ html(lang="en")
             | Subscribe
     //- Viewed products area
     section.view-products
-      h2.view-products__title
-        svg.view-products__svg
-          use(xlink:href="#icon_eye")
-        | Recently viewed products
-      .view-products__container
-        +viewProduct('iphone-7', 'Apple iPhone 7', 'Apple iPhone 7', '670')
-        +viewProduct('lg-43uh610v', 'LG 43UH610V', 'LG 43UH610V', '545')
-        +viewProduct('lg-phone', 'LG G6 H870DS', 'LG G6 H870DS', '545')
-        +viewProduct('beats-studio-wireles', 'Beats studio wireless', 'Beats studio wireless', '545')
+      .view-products__content
+        h2.view-products__title
+          svg.view-products__svg
+            use(xlink:href="#icon_eye")
+          | Recently viewed products
+        .view-products__list
+          +viewProduct('iphone-7', 'Apple iPhone 7', 'Apple iPhone 7', '670')
+          +viewProduct('lg-43uh610v', 'LG 43UH610V', 'LG 43UH610V', '545')
+          +viewProduct('lg-phone', 'LG G6 H870DS', 'LG G6 H870DS', '545')
+          +viewProduct('beats-studio-wireles', 'Beats studio wireless', 'Beats studio wireless', '545')
 
     include pug/footer.pug

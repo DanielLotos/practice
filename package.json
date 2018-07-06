@@ -44,6 +44,7 @@
     "webpack-svgstore-plugin": "^4.0.3"
   },
   "dependencies": {
+    "hamburgers": "^0.9.3",
     "lodash": "^4.17.10",
     "normalize": "^0.3.1",
     "normalize.css": "^8.0.0"

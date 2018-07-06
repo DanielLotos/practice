@@ -3,6 +3,7 @@
 @import "./vendor/owl/owl.carousel.min.css";
 @import "./vendor/owl/owl.theme.default.min.css";
 @import "./variables";
+@import "./vendor/hamburgers/hamburgers";
 @import "./mixin";
 
 body {
@@ -17,15 +18,23 @@ body {
 
 .main-header {
   margin-bottom: 30px;
-  &__nav {
-    display: flex;
-    flex-direction: column;
+  &__container {
+    @include screen-style(tablet) {
+      padding: 20px 24px;
+      border-bottom: $borderBottom;
+    }
     @include screen-style(phone) {
+      padding: 20px 24px;
       border-bottom: $borderBottom;
     }
     @include screen-style(minPhone) {
+      padding: 20px 24px;
       border-bottom: $borderBottom;
     }
+  }
+  &__nav {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -34,24 +43,26 @@ body {
   display: flex;
   width: 1440px;
   margin: 0 auto;
-  padding: 20px 25px;
-  padding-bottom: 18px;
+  padding: 18px 0;
   justify-content: space-between;
   align-items: center;
   @include screen-style(hd1024) {
     width: 100%;
+    padding: 18px 24px;
   }
   @include screen-style(tablet) {
     width: 100%;
+    padding: 0;
     flex-wrap: wrap;
   }
   @include screen-style(phone) {
     width: 100%;
+    padding: 0;
     flex-wrap: wrap;
   }
   @include screen-style(minPhone) {
     width: 100%;
-    padding: 20px 8px;
+    padding: 0;
     flex-wrap: wrap;
   }
 }
@@ -158,6 +169,7 @@ body {
     padding: 0;
     order: 2;
     flex-basis: 100%;
+    justify-content: flex-end;
   }
   @include screen-style(phone) {
     padding: 0;
@@ -179,7 +191,7 @@ body {
     }
     &--user {
       @include screen-style(tablet) {
-        margin-left: auto;
+        margin-left: 12px;
       }
       @include screen-style(phone) {
         margin-left: 12px;
@@ -253,6 +265,10 @@ body {
   height: 30px;
   cursor: pointer;
   transition: all .5s;
+  @include screen-style(tablet) {
+    display: inline-block;
+    margin-right: auto;
+  }
   @include screen-style(phone) {
     display: inline-block;
     margin-right: auto;
@@ -276,6 +292,9 @@ body {
   border-top: $borderTop;
   border-bottom: $borderBottom;
   text-align: center;
+  @include screen-style(tablet) {
+    display: none;
+  }
   @include screen-style(phone) {
     display: none;
   }
@@ -491,20 +510,24 @@ body {
 /*-----END-OWL-CUSTOMIZE---------*/
 
 .product-header {
-  display: flex;
-  height: 40px;
   margin-bottom: 40px;
-  justify-content: space-between;
-  align-items: center;
-  @include screen-style(phone) {
-    padding: 0 3px;
-    flex-wrap: wrap;
-    height: auto;
-  }
-  @include screen-style(minPhone) {
-    padding: 0 3px;
-    flex-wrap: wrap;
-    height: auto;
+  &__content {
+    display: flex;
+    height: 40px;
+    padding: 0 16px;
+    justify-content: space-between;
+    align-items: center;
+    @media only screen and (min-width: 558px - 1) and (max-width: $tablet - 1) {
+      padding: 0 24px;
+      flex-wrap: wrap;
+      height: auto;
+    }
+    @media only screen and (max-width: 558px - 1) {
+      padding: 0 24px;
+      flex-wrap: wrap;
+      flex-direction: column;
+      height: auto;
+    }
   }
 
   &__title {
@@ -530,16 +553,21 @@ body {
     width: 30px;
     height: 30px;
     margin-right: 24px;
+    @include screen-style(phone) {
+      margin-right: 8px;
+    }
+    @include screen-style(minPhone) {
+      margin-right: 8px;
+    }
   }
 
   &__wrapper {
     height: 100%;
-    @include screen-style(phone) {
+    @media only screen and (min-width: 558px - 1) and (max-width: $tablet - 1) {
       height: 40px;
     }
-    @include screen-style(minPhone) {
+    @media only screen and (max-width: 558px - 1) {
       height: 40px;
-      margin: 0 auto;
       margin-bottom: 16px;
     }
   }
@@ -619,6 +647,20 @@ body {
 
 .products {
   &__content {
+    @include screen-style(hd1024) {
+      padding: 0 16px;
+    }
+    @include screen-style(tablet) {
+      padding: 0 16px;
+    }
+    @include screen-style(phone) {
+      padding: 0 16px;
+    }
+    @include screen-style(minPhone) {
+      padding: 0 24px;
+    }
+  }
+  &__list {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -728,19 +770,19 @@ body {
     justify-content: center;
     align-items: center;
     @include screen-style(tablet) {
-      padding: 18px 4px;
+      padding: 18px 16px;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
     }
     @include screen-style(phone) {
-      padding: 18px 4px;
+      padding: 18px 24px;
       flex-wrap: wrap;
       align-items: flex-start;
       justify-content: center;
     }
     @include screen-style(minPhone) {
-      padding: 18px 4px;
+      padding: 18px 24px;
       flex-wrap: wrap;
       align-items: flex-start;
       justify-content: center;
@@ -754,15 +796,15 @@ body {
       margin-right: 30px;
       @include screen-style(tablet) {
         min-width: 30px;
-        margin-right: 16px;
+        margin-right: 8px;
       }
       @include screen-style(phone) {
         min-width: 30px;
-        margin-right: 16px;
+        margin-right: 8px;
       }
       @include screen-style(minPhone) {
         min-width: 30px;
-        margin-right: 16px;
+        margin-right: 8px;
       }
     }
   }
@@ -879,7 +921,6 @@ body {
   flex-direction: column;
   &__title {
     display: flex;
-    padding: 0 16px;
     margin-bottom: 44px;
     align-items: center;
     font-size: 18px;
@@ -897,9 +938,25 @@ body {
     width: 30px;
     height: 30px;
     margin-right: 24px;
+    @include screen-style(phone) {
+      margin-right: 8px;
+    }
+    @include screen-style(minPhone) {
+      margin-right: 8px;
+    }
   }
 
-  &__container {
+  &__content {
+    padding: 0 16px;
+    @include screen-style(phone) {
+      padding: 0 16px;
+    }
+    @include screen-style(minPhone) {
+      padding: 0 24px;
+    }
+  }
+
+  &__list {
     display: flex;
     justify-content: space-between;
     @include screen-style(tablet) {
@@ -991,53 +1048,54 @@ body {
   border-top: 2px solid $gray-l1;
   padding-top: 40px;
 
-  &__nav {
+  &__container {
     display: flex;
     width: 1080px;
     margin: 0 auto;
     margin-bottom: 26px;
+    padding: 0 16px;
     @include screen-style(hd1024) {
       width: 100%;
-      padding: 0 5px;
+      padding: 0 16px;
       flex-wrap: wrap;
     }
     @include screen-style(tablet) {
       width: 100%;
-      padding: 0 5px;
+      padding: 0 16px;
       flex-wrap: wrap;
     }
     @include screen-style(phone) {
       width: 100%;
-      padding: 0 5px;
+      padding: 0 24px;
       flex-wrap: wrap;
     }
     @include screen-style(minPhone) {
       width: 100%;
-      padding: 0 5px;
+      padding: 0 24px;
       flex-wrap: wrap;
     }
   }
 
-  &__wrapper {
+   &__wrapper {
     min-width: calc(100% / 3);
     margin-right: 64px;
     &:last-of-type {
       min-width: auto;
       margin: 0;
     }
-    @include screen-style(tablet) {
+    @media only screen and (min-width: 720px - 1) and (max-width: 1024px - 1) {
       width: calc(100% / 3);
       margin: 0;
       margin-right: 0;
       margin-bottom: 16px;
     }
-    @include screen-style(phone) {
+    @media only screen and (min-width: 480px - 1) and (max-width: 720px - 1) {
       width: calc(100% / 2);
       margin: 0;
       margin-right: 0;
       margin-bottom: 16px;
     }
-    @include screen-style(minPhone) {
+    @media only screen and (max-width: 480px - 1) {
       width: 100%;
       margin: 0;
       margin-right: 0;
@@ -1116,16 +1174,30 @@ body {
 }
 
 .more-links {
-  display: block;
-  padding: 32px 0;
-  border-top: 2px solid $gray-l1;
-  text-align: center;
+  &__container {
+    display: block;
+    padding: 32px 16px;
+    border-top: 2px solid $gray-l1;
+    text-align: center;
+    @include screen-style(phone) {
+      padding: 16px 24px;
+    }
+    @include screen-style(minPhone) {
+      padding: 16px 24px;
+    }
+  }
   &__link {
     margin: 0 20px;
     color: $gray-d1;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+    @include screen-style(phone) {
+      margin: 0 10px;
+    }
+    @include screen-style(minPhone) {
+      margin: 0 10px;
+    }
     &:hover {
       color: $gray-d3;
     }
