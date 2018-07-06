@@ -108,9 +108,18 @@ body {
     padding-left: 30px;
     border: none;
     font-size: 12px;
-    color: $gray-d1;
+    color: $black-l1;
+    @include screen-style(tablet) {
+      width: 100%;
+    }
+    @include screen-style(phone) {
+      width: 100%;
+    }
+    @include screen-style(minPhone) {
+      width: 100%;
+    }
     &::placeholder {
-      color: inherit;
+      color: $gray-d1;
       font-size: inherit;
       font-weight: 500;
     }
