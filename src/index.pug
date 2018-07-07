@@ -106,7 +106,7 @@ html(lang="en")
       //- Start product area
       section.product
         .product-header
-          .product-header__content
+          .product-header__container
             h2.product-header__title
               svg.product-header__svg
                 use(xlink:href="#icon_star")
@@ -141,7 +141,7 @@ html(lang="en")
                   use(xlink:href="#icon_arrow-down")
         //- Block with product cards
         .products
-          .products__content
+          .products__container
             .products__list
               +productsItem('Recommend', 'asus-zenfone-go', 'Smartphone Asus ZenFone Go ZB452KG', 'Asus ZenFone Go ZB452KG', '384.4')
               +productsItem('Bestseller', 'xiaomi-mi-band-2', 'Xiaomi Mi Band 2', 'Xiaomi Mi Band 2', '384.4')
@@ -156,7 +156,7 @@ html(lang="en")
       //- End product area
     //- Subscribe block
     section.subscribe
-      .subscribe__content
+      .subscribe__container
         h2.subscribe__title.visually-hidden
           | Subscribe section
         svg.subscribe__svg.subscribe__svg--open-mail
@@ -171,7 +171,7 @@ html(lang="en")
             | Subscribe
     //- Viewed products area
     section.view-products
-      .view-products__content
+      .view-products__container
         h2.view-products__title
           svg.view-products__svg
             use(xlink:href="#icon_eye")

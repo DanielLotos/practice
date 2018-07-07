@@ -1094,12 +1094,12 @@ body {
 /*-----END-OWL-CUSTOMIZE---------*/
 .product-header {
   margin-bottom: 40px; }
-  .product-header__content {
+  .product-header__container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     height: 40px;
-    padding: 0 16px;
+    padding: 0 24px;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -1107,13 +1107,13 @@ body {
         -ms-flex-align: center;
             align-items: center; }
     @media only screen and (min-width: 557px) and (max-width: 767px) {
-      .product-header__content {
+      .product-header__container {
         padding: 0 24px;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
         height: auto; } }
     @media only screen and (max-width: 557px) {
-      .product-header__content {
+      .product-header__container {
         padding: 0 24px;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
@@ -1233,19 +1233,19 @@ body {
             transform: translateY(-50%); }
 
 @media only screen and (min-width: 1023px) and (max-width: 1439px) {
-  .products__content {
-    padding: 0 16px; } }
+  .products__container {
+    padding: 0 24px; } }
 
 @media only screen and (min-width: 767px) and (max-width: 1023px) {
-  .products__content {
-    padding: 0 16px; } }
+  .products__container {
+    padding: 0 24px; } }
 
 @media only screen and (min-width: 499px) and (max-width: 767px) {
-  .products__content {
+  .products__container {
     padding: 0 16px; } }
 
 @media only screen and (max-width: 499px) {
-  .products__content {
+  .products__container {
     padding: 0 24px; } }
 
 .products__list {
@@ -1344,7 +1344,7 @@ body {
   margin-bottom: 44px;
   border-top: 2px solid #F5F5F5;
   border-bottom: 2px solid #EBEBEB; }
-  .subscribe__content {
+  .subscribe__container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1356,8 +1356,8 @@ body {
         -ms-flex-align: center;
             align-items: center; }
     @media only screen and (min-width: 767px) and (max-width: 1023px) {
-      .subscribe__content {
-        padding: 18px 16px;
+      .subscribe__container {
+        padding: 18px 24px;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
         -webkit-box-align: center;
@@ -1367,7 +1367,7 @@ body {
             -ms-flex-pack: center;
                 justify-content: center; } }
     @media only screen and (min-width: 499px) and (max-width: 767px) {
-      .subscribe__content {
+      .subscribe__container {
         padding: 18px 24px;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
@@ -1378,7 +1378,7 @@ body {
             -ms-flex-pack: center;
                 justify-content: center; } }
     @media only screen and (max-width: 499px) {
-      .subscribe__content {
+      .subscribe__container {
         padding: 18px 24px;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
@@ -1557,13 +1557,13 @@ body {
     @media only screen and (max-width: 499px) {
       .view-products__svg {
         margin-right: 8px; } }
-  .view-products__content {
-    padding: 0 16px; }
+  .view-products__container {
+    padding: 0 24px; }
     @media only screen and (min-width: 499px) and (max-width: 767px) {
-      .view-products__content {
-        padding: 0 16px; } }
+      .view-products__container {
+        padding: 0 24px; } }
     @media only screen and (max-width: 499px) {
-      .view-products__content {
+      .view-products__container {
         padding: 0 24px; } }
   .view-products__list {
     display: -webkit-box;
@@ -1671,17 +1671,17 @@ body {
     width: 1080px;
     margin: 0 auto;
     margin-bottom: 26px;
-    padding: 0 16px; }
+    padding: 0 24px; }
     @media only screen and (min-width: 1023px) and (max-width: 1439px) {
       .main-footer__container {
         width: 100%;
-        padding: 0 16px;
+        padding: 0 24px;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap; } }
     @media only screen and (min-width: 767px) and (max-width: 1023px) {
       .main-footer__container {
         width: 100%;
-        padding: 0 16px;
+        padding: 0 24px;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap; } }
     @media only screen and (min-width: 499px) and (max-width: 767px) {
@@ -1789,7 +1789,7 @@ body {
 
 .more-links__container {
   display: block;
-  padding: 32px 16px;
+  padding: 32px 24px;
   border-top: 2px solid #F5F5F5;
   text-align: center; }
   @media only screen and (min-width: 499px) and (max-width: 767px) {

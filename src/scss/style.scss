@@ -520,10 +520,10 @@ body {
 
 .product-header {
   margin-bottom: 40px;
-  &__content {
+  &__container {
     display: flex;
     height: 40px;
-    padding: 0 16px;
+    padding: 0 24px;
     justify-content: space-between;
     align-items: center;
     @media only screen and (min-width: 558px - 1) and (max-width: $tablet - 1) {
@@ -655,12 +655,12 @@ body {
 }
 
 .products {
-  &__content {
+  &__container {
     @include screen-style(hd1024) {
-      padding: 0 16px;
+      padding: 0 24px;
     }
     @include screen-style(tablet) {
-      padding: 0 16px;
+      padding: 0 24px;
     }
     @include screen-style(phone) {
       padding: 0 16px;
@@ -773,13 +773,13 @@ body {
   border-top: $borderTop;
   border-bottom: $borderBottom;
 
-  &__content {
+  &__container {
     display: flex;
     padding: 18px 0;
     justify-content: center;
     align-items: center;
     @include screen-style(tablet) {
-      padding: 18px 16px;
+      padding: 18px 24px;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
@@ -955,10 +955,10 @@ body {
     }
   }
 
-  &__content {
-    padding: 0 16px;
+  &__container {
+    padding: 0 24px;
     @include screen-style(phone) {
-      padding: 0 16px;
+      padding: 0 24px;
     }
     @include screen-style(minPhone) {
       padding: 0 24px;
@@ -1062,15 +1062,15 @@ body {
     width: 1080px;
     margin: 0 auto;
     margin-bottom: 26px;
-    padding: 0 16px;
+    padding: 0 24px;
     @include screen-style(hd1024) {
       width: 100%;
-      padding: 0 16px;
+      padding: 0 24px;
       flex-wrap: wrap;
     }
     @include screen-style(tablet) {
       width: 100%;
-      padding: 0 16px;
+      padding: 0 24px;
       flex-wrap: wrap;
     }
     @include screen-style(phone) {
@@ -1185,7 +1185,7 @@ body {
 .more-links {
   &__container {
     display: block;
-    padding: 32px 16px;
+    padding: 32px 24px;
     border-top: 2px solid $gray-l1;
     text-align: center;
     @include screen-style(phone) {
