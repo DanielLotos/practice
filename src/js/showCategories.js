@@ -1,9 +1,5 @@
+// Call accordion
 $( "li.user__item--categories" ).click(function() {
-  $( "ul.user-categories" ).toggleClass( "user-categories--active" );
-  $( "div.hamburger" ).toggleClass( "is-active" );
+  $( "div.hamburger" ).toggleClass( "is-active" ); // animation hamburger
+  $( "ul.user-categories" ).slideToggle("fast"); // active accordion
 });
-
-
-// $( "user__item--categories" ).on( "click", function() {
-//   $( "user-categories" ).toggleClass( "user-categories--active" );
-// });

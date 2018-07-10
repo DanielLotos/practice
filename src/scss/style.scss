@@ -19,15 +19,7 @@ body {
 .main-header {
   margin-bottom: 30px;
   &__container {
-    @include screen-style(tablet) {
-      padding: 20px 24px;
-      border-bottom: $borderBottom;
-    }
-    @include screen-style(phone) {
-      padding: 20px 24px;
-      border-bottom: $borderBottom;
-    }
-    @include screen-style(minPhone) {
+    @media only screen and (max-width: $hd1024 - 1) {
       padding: 20px 24px;
       border-bottom: $borderBottom;
     }
@@ -43,24 +35,14 @@ body {
   display: flex;
   width: 1440px;
   margin: 0 auto;
-  padding: 18px 0;
+  padding: 18px 24px;
   justify-content: space-between;
   align-items: center;
   @include screen-style(hd1024) {
     width: 100%;
     padding: 18px 24px;
   }
-  @include screen-style(tablet) {
-    width: 100%;
-    padding: 0;
-    flex-wrap: wrap;
-  }
-  @include screen-style(phone) {
-    width: 100%;
-    padding: 0;
-    flex-wrap: wrap;
-  }
-  @include screen-style(minPhone) {
+  @media only screen and (max-width: $hd1024 - 1) {
     width: 100%;
     padding: 0;
     flex-wrap: wrap;
@@ -75,17 +57,7 @@ body {
   align-items: center;
   border: 2px solid $gray-l1;
   border-radius: 28px;
-  @include screen-style(tablet) {
-    margin-bottom: 16px;
-    order: 0;
-    flex-basis: calc(100% - 56px);
-  }
-  @include screen-style(phone) {
-    margin-bottom: 16px;
-    order: 0;
-    flex-basis: calc(100% - 56px);
-  }
-  @include screen-style(minPhone) {
+  @media only screen and (max-width: $hd1024 - 1) {
     margin-bottom: 16px;
     order: 0;
     flex-basis: calc(100% - 56px);
@@ -109,13 +81,7 @@ body {
     border: none;
     font-size: 12px;
     color: $black-l1;
-    @include screen-style(tablet) {
-      width: 100%;
-    }
-    @include screen-style(phone) {
-      width: 100%;
-    }
-    @include screen-style(minPhone) {
+    @media only screen and (max-width: $hd1024 - 1) {
       width: 100%;
     }
     &::placeholder {
@@ -133,38 +99,21 @@ body {
   display: block;
   width: 40px;
   height: 40px;
-  transform: translate(-50%, -50%); //For PixPerfect
   border: 8px solid $blueLogo;
   border-radius: 50%;
   font-size: 0;
+  transform: translate(-50%, -50%); //For PixPerfect
+  transition: border .3s;
   &:hover {
-    background-color: $gray-l3;
+    border-color: lighten($color: $blueLogo, $amount: 15);
   }
-  @include screen-style(tablet) {
+  @media only screen and (max-width: $hd1024 - 1) {
     position: relative;
-    transform: none;
     top: auto;
     left: auto;
     margin-left: auto;
     margin-bottom: 16px;
-    order: 1;
-  }
-  @include screen-style(phone) {
-    position: relative;
     transform: none;
-    top: auto;
-    left: auto;
-    margin-left: auto;
-    margin-bottom: 16px;
-    order: 1;
-  }
-  @include screen-style(minPhone) {
-    position: relative;
-    transform: none;
-    top: auto;
-    left: auto;
-    margin-left: auto;
-    margin-bottom: 16px;
     order: 1;
   }
 }
@@ -174,19 +123,7 @@ body {
   display: flex;
   padding-right: 5px;
   align-items: center;
-  @include screen-style(tablet) {
-    padding: 0;
-    order: 2;
-    flex-basis: 100%;
-    justify-content: flex-end;
-  }
-  @include screen-style(phone) {
-    padding: 0;
-    order: 2;
-    flex-basis: 100%;
-    justify-content: flex-end;
-  }
-  @include screen-style(minPhone) {
+  @media only screen and (max-width: $hd1024 - 1) {
     padding: 0;
     order: 2;
     flex-basis: 100%;
@@ -216,9 +153,9 @@ body {
     display: inline-block;
     padding-left: 40px;
     color: $gray-d2;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 18px;
     &:hover {
       color: $gray-d3;
     }
@@ -248,12 +185,12 @@ body {
 .user-categories {
   position: absolute;
   top: 0;
-  left: 100%;
+  left: 120%;
   z-index: 2;
   display: none;
   &__content {
     display: flex;
-    width: 140px;
+    width: 180px;
     flex-direction: column;
     background-color: #ffffff;
     border: 2px solid $gray-l1;
@@ -261,7 +198,8 @@ body {
   }
   &__link {
     display: block;
-    padding: 8px 5px;
+    padding: 12px 5px;
+    padding-left: 16px;
     &:hover {
       background-color: $gray-l2;
     }
@@ -276,23 +214,10 @@ body {
   margin-left: 0;
   cursor: pointer;
   transition: all .5s;
-  @include screen-style(tablet) {
+  @media only screen and (max-width: $hd1024 - 1) {
     display: inline-block;
     margin-right: auto;
   }
-  @include screen-style(phone) {
-    display: inline-block;
-    margin-right: auto;
-  }
-  @include screen-style(minPhone) {
-    display: inline-block;
-    margin-right: auto;
-  }
-}
-
-.user-categories--active {
-  display: block;
-  transition: all .5s;
 }
 
 // End dropdown categories list
@@ -303,13 +228,7 @@ body {
   border-top: $borderTop;
   border-bottom: $borderBottom;
   text-align: center;
-  @include screen-style(tablet) {
-    display: none;
-  }
-  @include screen-style(phone) {
-    display: none;
-  }
-  @include screen-style(minPhone) {
+  @media only screen and (max-width: $hd1024 - 1) {
     display: none;
   }
   &__content {
@@ -545,7 +464,8 @@ body {
     display: flex;
     font-size: 18px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 22px;
+    align-items: center;
     @include screen-style(phone) {
       margin-bottom: 16px;
       flex-basis: 100%;
@@ -658,32 +578,19 @@ body {
 
 .products {
   &__container {
+    padding: 0 24px;
     @include screen-style(hd1024) {
       padding: 0 24px;
     }
-    @include screen-style(tablet) {
-      padding: 0 24px;
-    }
-    @include screen-style(phone) {
-      padding: 0 16px;
-    }
-    @include screen-style(minPhone) {
-      padding: 0 24px;
+    @media only screen and (max-width: $hd1024 - 1) {
+      padding: 0 12px;
     }
   }
   &__list {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    @include screen-style(tablet) {
-      margin-bottom: 32px;
-      justify-content: center;
-    }
-    @include screen-style(phone) {
-      margin-bottom: 32px;
-      justify-content: center;
-    }
-    @include screen-style(minPhone) {
+    @media only screen and (max-width: $hd1024 - 1) {
       margin-bottom: 32px;
       justify-content: center;
     }
@@ -781,23 +688,30 @@ body {
     padding: 18px 0;
     justify-content: center;
     align-items: center;
-    @include screen-style(tablet) {
+    @media only screen and (max-width: $hd1024 - 1) {
       padding: 18px 24px;
       flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    margin-right: 70px;
+    align-items: center;
+    @media only screen and (min-width: 768px - 1) and (max-width: 941px - 1) {
+      max-width: 50%;
+      margin-right: 20px;
+      margin-bottom: 0;
     }
     @include screen-style(phone) {
-      padding: 18px 24px;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: center;
+      max-width: 100%;
+      margin-bottom: 16px;
+      margin-right: 0;
     }
-    @include screen-style(minPhone) {
-      padding: 18px 24px;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: center;
+    @media only screen and (max-width: 504px - 1) {
+      max-width: 80%;
+      margin-bottom: 16px;
+      margin-right: 0;
     }
   }
 
@@ -805,16 +719,8 @@ body {
     width: 30px;
     height: 30px;
     &--open-mail {
-      margin-right: 30px;
-      @include screen-style(tablet) {
-        min-width: 30px;
-        margin-right: 8px;
-      }
-      @include screen-style(phone) {
-        min-width: 30px;
-        margin-right: 8px;
-      }
-      @include screen-style(minPhone) {
+      margin-right: 24px;
+      @media only screen and (max-width: $hd1024 - 1) {
         min-width: 30px;
         margin-right: 8px;
       }
@@ -822,28 +728,10 @@ body {
   }
 
   &__caption {
-    margin-right: 70px;
+    // margin-right: 70px;
     font-size: 14px;
     font-weight: 400;
-    line-height: 25px;
-    @include screen-style(tablet) {
-      max-width: calc(50% - 46px);
-      margin-right: 20px;
-      margin-bottom: 0;
-      line-height: 30px;
-    }
-    @include screen-style(phone) {
-      max-width: calc(100% - 46px);
-      margin-bottom: 16px;
-      margin-right: 0;
-      line-height: 30px;
-    }
-    @include screen-style(minPhone) {
-      max-width: calc(100% - 46px);
-      margin-bottom: 16px;
-      margin-right: 0;
-      line-height: 30px;
-    }
+    line-height: 18px;
   }
 
   &-form {
@@ -854,6 +742,7 @@ body {
     align-items: center;
     border: 2px solid $gray-l2;
     border-radius: 28px;
+    transition: min-width .3s;
     @include screen-style(tablet) {
       position: relative;
       min-width: 300px;
@@ -861,10 +750,14 @@ body {
     }
     @include screen-style(phone) {
       position: relative;
-      min-width: 100%;
+      min-width: 300px;
+      max-width: 350px;
     }
     @include screen-style(minPhone) {
       position: relative;
+      min-width: 80%;
+    }
+    @media only screen and (max-width: 380px) {
       min-width: 100%;
     }
 
@@ -882,13 +775,7 @@ body {
         font-size: inherit;
         font-weight: inherit;
       }
-      @include screen-style(tablet) {
-        min-width: calc(100% - 54px);
-      }
-      @include screen-style(phone) {
-        min-width: calc(100% - 54px);
-      }
-      @include screen-style(minPhone) {
+      @media only screen and (max-width: $hd1024 - 1) {
         min-width: calc(100% - 54px);
       }
     }
@@ -906,17 +793,7 @@ body {
         background-color: transparent;
         border: 2px solid $gray-l2;
       }
-      @include screen-style(tablet) {
-        position: absolute;
-        right: 2px;
-        height: calc(100% - 4px);
-      }
-      @include screen-style(phone) {
-        position: absolute;
-        right: 2px;
-        height: calc(100% - 4px);
-      }
-      @include screen-style(minPhone) {
+      @media only screen and (max-width: $hd1024 - 1) {
         position: absolute;
         right: 2px;
         height: calc(100% - 4px);
@@ -929,15 +806,24 @@ body {
   display: flex;
   max-width: 1080px;
   margin: 0 auto;
-  margin-bottom: 60px;
+  margin-bottom: 38px;
   flex-direction: column;
+  @include screen-style(tablet) {
+    margin-bottom: 8px;
+  }
+  @media screen and (max-width: $tablet - 1) {
+    margin-bottom: 28px;
+  }
   &__title {
     display: flex;
-    margin-bottom: 44px;
+    margin-bottom: 32px;
     align-items: center;
     font-size: 18px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 22px;
+    @include screen-style(tablet) {
+      padding-left: 12px;
+    }
     @include screen-style(phone) {
       justify-content: center;
     }
@@ -960,26 +846,15 @@ body {
 
   &__container {
     padding: 0 24px;
-    @include screen-style(phone) {
-      padding: 0 24px;
-    }
-    @include screen-style(minPhone) {
-      padding: 0 24px;
+    @media only screen and (max-width: $hd1024 - 1) {
+      padding: 0 12px;
     }
   }
 
   &__list {
     display: flex;
     justify-content: space-between;
-    @include screen-style(tablet) {
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    @include screen-style(phone) {
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    @include screen-style(minPhone) {
+    @media only screen and (max-width: $hd1024 - 1) {
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -992,11 +867,10 @@ body {
       margin-bottom: 32px;
     }
     @include screen-style(phone) {
-      margin: 0 12px;
-      margin-bottom: 16px;
+      margin: 12px;
     }
     @include screen-style(minPhone) {
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
 
     &__link {
@@ -1023,10 +897,15 @@ body {
 
     &__inner-text {
       display: flex;
+      width: calc(100% - 80px);
       height: 100%;
       flex-direction: column;
       justify-content: space-between;
       text-align: start;
+      overflow: hidden;
+      @include screen-style(minPhone) {
+        width: calc(100% - (80px + 24px));
+      }
     }
 
     &__name {
@@ -1034,16 +913,9 @@ body {
       font-size: 14px;
       font-weight: 400;
       line-height: 24px;
-      @include screen-style(tablet) {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      @include screen-style(phone) {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     &__price {
@@ -1071,17 +943,7 @@ body {
       padding: 0 24px;
       flex-wrap: wrap;
     }
-    @include screen-style(tablet) {
-      width: 100%;
-      padding: 0 24px;
-      flex-wrap: wrap;
-    }
-    @include screen-style(phone) {
-      width: 100%;
-      padding: 0 24px;
-      flex-wrap: wrap;
-    }
-    @include screen-style(minPhone) {
+    @media only screen and (max-width: $hd1024 - 1) {
       width: 100%;
       padding: 0 24px;
       flex-wrap: wrap;
@@ -1186,10 +1048,12 @@ body {
 }
 
 .more-links {
+  border-top: 2px solid $gray-l1;
   &__container {
     display: block;
+    max-width: 1080px;
+    margin: 0 auto;
     padding: 32px 24px;
-    border-top: 2px solid $gray-l1;
     text-align: center;
     @include screen-style(phone) {
       padding: 16px 24px;
@@ -1209,6 +1073,11 @@ body {
     }
     @include screen-style(minPhone) {
       margin: 0 10px;
+    }
+    @media screen and (max-width: 320px - 1) {
+      display: block;
+      margin: 0;
+      padding: 4px 0;
     }
     &:hover {
       color: $gray-d3;

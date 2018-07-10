@@ -103,7 +103,8 @@ html(lang="en")
             button.promo-card__arrow.promo-card__arrow--forwar(type="button")
               svg.promo-card__svg
                 use(xlink:href="#icon_arrow_forward")
-      //- Start product area
+
+      //- Product section
       section.product
         .product-header
           .product-header__container
@@ -151,25 +152,27 @@ html(lang="en")
               +productsItem('Recommend', 'electrolux', 'Electrolux EZB 52410 AK', 'Electrolux EZB 52410 AK', '384.4')
               +productsItem('Bestseller', 'beats-studio-wireles', 'Beats studio wireless', 'Beats studio wireless', '384.4')
               +productsItem('Recommend', 'nikon-d3300', 'Nikon D3300 Kit', 'Nikon D3300 Kit', '384.4')
-          button.product__btn(type="button")
-            | show more
-      //- End product area
-    //- Subscribe block
+            button.product__btn(type="button")
+              | show more
+
+    //- Subscribe section
     section.subscribe
       .subscribe__container
         h2.subscribe__title.visually-hidden
           | Subscribe section
-        svg.subscribe__svg.subscribe__svg--open-mail
-          use(xlink:href="#icon_mail-open")
-        p.subscribe__caption
-          | Learn about profitable offers and get personal recommendations
+        .subscribe__wrapper
+          svg.subscribe__svg.subscribe__svg--open-mail
+            use(xlink:href="#icon_mail-open")
+          p.subscribe__caption
+            | Learn about profitable offers and get personal recommendations
         form.subscribe-form(action="#")
           svg.subscribe__svg.subscribe-form__svg
             use(xlink:href="#icon_email")
           input.subscribe-form__input(type="email" placeholder="Email")
           button.subscribe-form__btn(type="submit")
             | Subscribe
-    //- Viewed products area
+
+    //- Viewed products section
     section.view-products
       .view-products__container
         h2.view-products__title
