@@ -4,9 +4,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  a {
-    text-decoration: none;
-  }
 }
 
 body {
@@ -15,6 +12,11 @@ body {
 
 ul {
   list-style: none;
+}
+
+a {
+  font-family: inherit;
+  text-decoration: none;
 }
 
 .visually-hidden {

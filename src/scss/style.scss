@@ -10,18 +10,20 @@ body {
   font-family: 'Roboto', $font-fallback, serif;
   color: $gray-d3;
   font-size: 14px;
-  & a {
-    font-family: inherit;
-    color: $gray-d3;
-  }
+}
+
+a {
+  color: $gray-d3;
 }
 
 .main-header {
   margin-bottom: 30px;
+  @media only screen and (max-width: $hd1024 - 1) {
+    margin: 0;
+  }
   &__container {
     @media only screen and (max-width: $hd1024 - 1) {
       padding: 20px 24px;
-      border-bottom: $borderBottom;
     }
   }
   &__nav {
@@ -181,27 +183,81 @@ body {
   }
 }
 
-// Start dropdown categories list
-.user-categories {
-  position: absolute;
-  top: 0;
-  left: 120%;
-  z-index: 2;
-  display: none;
-  &__content {
-    display: flex;
-    width: 180px;
-    flex-direction: column;
-    background-color: #ffffff;
-    border: 2px solid $gray-l1;
-    border-radius: 0 8px 8px 8px;
+.categories {
+  padding: 24px 0;
+  padding-bottom: 17px;
+  border-top: $borderTop;
+  border-bottom: $borderBottom;
+  text-align: center;
+  @media only screen and (min-width: $hd1024 - 1) {
+    display: block !important;
   }
+  @media only screen and (max-width: $hd1024 - 1) {
+    display: none;
+    border: none;
+    text-align: left;
+  }
+
+  &__content {
+    max-width: 1440px;
+    margin: 0 auto;
+    @media only screen and (max-width: $hd1024 - 1) {
+      display: flex;
+      max-width: 100%;
+      max-height: auto;
+      flex-wrap: wrap;
+      flex-direction: column;
+      background-color: #ffffff;
+      align-content: flex-start;
+    }
+    @media only screen and (min-width: 842px - 1) {
+      max-height: 80px;
+    }
+    @media only screen and (min-width: 642px - 1) and (max-width: 842px - 1) {
+      max-height: 120px;
+    }
+    @media only screen and (min-width: 442px - 1) and (max-width: 642px - 1) {
+      max-height: 200px;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    margin: 0 19px;
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+    @media only screen and (max-width: $hd1024 - 1) {
+      margin: 0;
+      width: 200px;
+    }
+    @media only screen and (max-width: 441px - 1) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
   &__link {
     display: block;
-    padding: 12px 5px;
-    padding-left: 16px;
+    font-size: 13px;
+    line-height: 20px;
+    color: $gray-d2;
+    font-weight: 400;
     &:hover {
-      background-color: $gray-l2;
+      color: $gray-d3;
+    }
+    @media only screen and (max-width: $hd1024 - 1) {
+      display: block;
+      padding: 10px 5px;
+      &:hover {
+        background-color: $gray-l2;
+      }
+    }
+    &--active {
+      font-weight: 500;
     }
   }
 }
@@ -215,77 +271,24 @@ body {
   cursor: pointer;
   transition: all .5s;
   @media only screen and (max-width: $hd1024 - 1) {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     margin-right: auto;
   }
 }
 
-// End dropdown categories list
-
-.categories {
-  padding: 24px 0;
-  padding-bottom: 17px;
-  border-top: $borderTop;
-  border-bottom: $borderBottom;
-  text-align: center;
-  @media only screen and (max-width: $hd1024 - 1) {
-    display: none;
+.hamburger__caption {
+  display: inline-block;
+  padding: 0 12px;
+  color: $gray-d2;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  &:hover {
+    color: $gray-d3;
   }
-  &__content {
-    max-width: 1440px;
-    margin: 0 auto;
-    @include screen-style(tablet) {
-      display: flex;
-      max-width: 70%;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    @include screen-style(phone) {
-      display: flex;
-      max-width: 100%;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    @include screen-style(minPhone) {
-      display: flex;
-      max-width: 100%;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-  }
-  &__item {
-    display: inline-block;
-    margin: 0 19px;
-    &:first-of-type {
-      margin-left: 0;
-    }
-    &:last-of-type {
-      margin-right: 0;
-    }
-    @include screen-style(phone) {
-      width: calc(100% / 4);
-      margin: 0;
-    }
-    @include screen-style(minPhone) {
-      width: calc(100% / 3);
-      margin: 0;
-    }
-  }
-  &__link {
-    display: block;
-    font-size: 13px;
-    line-height: 20px;
-    color: $gray-d2;
-    font-weight: 400;
-    &:hover {
-      color: $gray-d3;
-    }
-    &--active {
-      font-weight: 500;
-    }
-    @include screen-style(minPhone) {
-      padding: 6px;
-    }
+  @media only screen and (max-width: 540px - 1) {
+    font-size: 0;
   }
 }
 
@@ -689,7 +692,7 @@ body {
     justify-content: center;
     align-items: center;
     @media only screen and (max-width: $hd1024 - 1) {
-      padding: 18px 24px;
+      padding: 16px 24px 20px 24px;
       flex-wrap: wrap;
     }
   }
@@ -728,7 +731,6 @@ body {
   }
 
   &__caption {
-    // margin-right: 70px;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
