@@ -189,9 +189,6 @@ a {
   border-top: $borderTop;
   border-bottom: $borderBottom;
   text-align: center;
-  @media only screen and (min-width: $hd1024 - 1) {
-    display: block !important;
-  }
   @media only screen and (max-width: $hd1024 - 1) {
     display: none;
     border: none;
@@ -210,14 +207,24 @@ a {
       background-color: #ffffff;
       align-content: flex-start;
     }
-    @media only screen and (min-width: 842px - 1) {
-      max-height: 80px;
+    @media only screen and (min-width: 842px - 1) and (max-width: $hd1024 - 1) {
+      max-height: calc(82px + 16px);
+      padding-top: 16px;
+      border-top: $borderTop;
     }
     @media only screen and (min-width: 642px - 1) and (max-width: 842px - 1) {
-      max-height: 120px;
+      max-height: calc(122px + 16px);
+      padding-top: 16px;
+      border-top: $borderTop;
     }
     @media only screen and (min-width: 442px - 1) and (max-width: 642px - 1) {
-      max-height: 200px;
+      max-height: calc(202px + 16px);
+      padding-top: 16px;
+      border-top: $borderTop;
+    }
+    @media only screen and (max-width: 442px - 1) {
+      padding-top: 16px;
+      border-top: $borderTop;
     }
   }
 
@@ -260,6 +267,7 @@ a {
       font-weight: 500;
     }
   }
+
 }
 
 .user__item--categories {

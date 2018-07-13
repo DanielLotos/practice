@@ -4,6 +4,11 @@ $( "li.user__item--categories" ).click(function() {
   $( "ul.categories" ).slideToggle("fast"); // active accordion
 });
 
+// Focus search input
+$( "form.search" ).click(function() {
+  $( "input.search__text" ).focus();
+});
+
 // Function detect resize window
 $(function() {
   $(window).resize(delAttClass);
