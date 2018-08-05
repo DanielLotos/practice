@@ -105,15 +105,19 @@ html(lang="en")
                 use(xlink:href="#icon_star")
               | Interesting offers
             .product-header__wrapper
-              button.product-header__btn
+              input.product-header__radio.visually-hidden(type="radio", id="productPopular", name="productType", value="Popular")
+              label.product-header__btn.product-header__label(for="productPopular")
                 | Popular
-              button.product-header__btn
+              input.product-header__radio.visually-hidden(type="radio", id="productTrending", name="productType", value="Trending")
+              label.product-header__btn.product-header__label(for="productTrending")
                 | Trending
-              button.product-header__btn
+              input.product-header__radio.visually-hidden(type="radio", id="productNew", name="productType", value="New")
+              label.product-header__btn.product-header__label(for="productNew")
                 | New
+              input.product-header__radio.visually-hidden(type="radio", id="productAll", name="productType", value="", checked="checked")
             form.product-header__wrapper.product-form
               .product-form__select-wrapper
-                select.product-form__select(name="categories")
+                select.product-form__select#js-categoriSelecter(name="categories")
                   option(value="" hidden) Categories
                   option(value="Electronics") Electronics
                   option(value="Appleances") Appleances
@@ -135,15 +139,8 @@ html(lang="en")
         //- Block with product cards
         .products
           .products__container
-            .products__list
-              +productsItem('Recommend', 'asus-zenfone-go', 'Smartphone Asus ZenFone Go ZB452KG', 'Asus ZenFone Go ZB452KG', '384.4')
-              +productsItem('Bestseller', 'xiaomi-mi-band-2', 'Xiaomi Mi Band 2', 'Xiaomi Mi Band 2', '384.4')
-              +productsItem('Goods of the week', 'lg-43uh610v', 'LG 43UH610V', 'LG 43UH610V', '384.4')
-              +productsItem('Recommend', 'apple-imac-27-retina-5k', 'Apple iMac 27 Retina 5K', 'Apple iMac 27 Retina 5K', '384.4')
-              +productsItem('New product', 'lg-conditioner', 'LG Conditioner', 'LG Conditioner', '384.4')
-              +productsItem('Recommend', 'electrolux', 'Electrolux EZB 52410 AK', 'Electrolux EZB 52410 AK', '384.4')
-              +productsItem('Bestseller', 'beats-studio-wireles', 'Beats studio wireless', 'Beats studio wireless', '384.4')
-              +productsItem('Recommend', 'nikon-d3300', 'Nikon D3300 Kit', 'Nikon D3300 Kit', '384.4')
+            .products__list#js-products__list
+
             button.product__btn(type="button")
               | show more
 

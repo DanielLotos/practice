@@ -1,0 +1,84 @@
+{
+  "products":
+  [
+    {
+      "productType": "Recommend",
+      "productCetegory": "Electronics",
+      "productName": "Asus ZenFone Go ZB452KG",
+      "productImg": "asus-zenfone-go",
+      "productPrice": "384.4"
+    },
+
+    {
+      "productType": "Bestseller",
+      "productCetegory": "Electronics, Chilldren's goods",
+      "productName": "Xiaomi Mi Band 2",
+      "productImg": "xiaomi-mi-band-2",
+      "productPrice": "84.2"
+    },
+
+    {
+      "productType": "Goods of the week",
+      "productCetegory": "Electronics",
+      "productName": "LG 43UH610V",
+      "productImg": "lg-43uh610-v",
+      "productPrice": "235.8"
+    },
+
+    {
+      "productType": "Recommend",
+      "productCetegory": "Electronics",
+      "productName": "Apple iMac 27 Retina 5K",
+      "productImg": "apple-imac-27-retina-5k",
+      "productPrice": "384.4"
+    },
+
+    {
+      "productType": "New product",
+      "productCetegory": "Appleances",
+      "productName": "LG Condotioner",
+      "productImg": "lg-conditioner",
+      "productPrice": "112.4"
+    },
+
+    {
+      "productType": "Recommend",
+      "productCetegory": "Appleances",
+      "productName": "Electrolux EZB 52410 AK",
+      "productImg": "electrolux",
+      "productPrice": "122.2"
+    },
+
+    {
+      "productType": "Bestseller",
+      "productCetegory": "Electronics, Chilldren's goods",
+      "productName": "Beats studio wireless",
+      "productImg": "beats-studio-wireless",
+      "productPrice": "94.3"
+    },
+
+    {
+      "productType": "Recommend",
+      "productCetegory": "Electronics",
+      "productName": "Nikon D3300 Kit",
+      "productImg": "nikon-d3300",
+      "productPrice": "204.7"
+    },
+
+    {
+      "productType": "Recommend",
+      "productCetegory": "Electronics",
+      "productName": "Apple iPhone 7",
+      "productImg": "iphone-7",
+      "productPrice": "670"
+    },
+
+    {
+      "productType": "New product",
+      "productCetegory": "Electronics",
+      "productName": "LG G6 H87DDS",
+      "productImg": "lg-phone",
+      "productPrice": "545"
+    }
+  ]
+}

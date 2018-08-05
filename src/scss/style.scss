@@ -515,6 +515,7 @@ a {
   }
 
   &__btn {
+    display: inline-block;
     padding: 0 16px;
     height: inherit;
     background-color: transparent;
@@ -523,6 +524,8 @@ a {
     font-size: 12px;
     font-weight: 500;
     line-height: 14px;
+    transition: background-color .3s;
+    cursor: pointer;
     &:hover {
       background-color: $gray-l2;
     }
@@ -535,6 +538,16 @@ a {
       border-left: none;
       border-top-right-radius: 24px;
       border-bottom-right-radius: 24px;
+    }
+  }
+
+  &__label {
+    padding-top: 10px;
+  }
+
+  &__radio:checked {
+    & + label {
+      background-color: $gray-l3;
     }
   }
 

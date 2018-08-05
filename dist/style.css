@@ -1074,6 +1074,7 @@ a {
         height: 40px;
         margin-bottom: 16px; } }
   .product-header__btn {
+    display: inline-block;
     padding: 0 16px;
     height: inherit;
     background-color: transparent;
@@ -1081,7 +1082,10 @@ a {
     color: #B2B2B2;
     font-size: 12px;
     font-weight: 500;
-    line-height: 14px; }
+    line-height: 14px;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    cursor: pointer; }
     .product-header__btn:hover {
       background-color: #EBEBEB; }
     .product-header__btn:first-of-type {
@@ -1092,6 +1096,10 @@ a {
       border-left: none;
       border-top-right-radius: 24px;
       border-bottom-right-radius: 24px; }
+  .product-header__label {
+    padding-top: 10px; }
+  .product-header__radio:checked + label {
+    background-color: #DADADA; }
   .product-header__input {
     padding: 0 16px;
     height: inherit;

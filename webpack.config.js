@@ -5,9 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const $ = require('jquery');
-
 const SvgStore = require('webpack-svgstore-plugin');
-
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -89,7 +87,7 @@ module.exports = {
   // Настройка плагинов
   plugins: [
     // Очистка директории выхода
-    new CleanWebpackPlugin(['dist']),
+    // new CleanWebpackPlugin(['dist']),
     // Подключаем jQuery
     new webpack.ProvidePlugin({
       $: 'jquery',
