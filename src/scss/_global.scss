@@ -1,19 +1,22 @@
+@import "./vendor/normalize.css";
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  a {
-    text-decoration: none;
-  }
 }
 
 body {
-  max-width: 1440px;
   margin: 0 auto;
 }
 
 ul {
   list-style: none;
+}
+
+a {
+  font-family: inherit;
+  text-decoration: none;
 }
 
 .visually-hidden {
@@ -25,4 +28,17 @@ ul {
 	height: 1px !important;
 	width: 1px !important;
 	overflow: hidden;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+button,
+a {
+  transition: background-color .3s;
 }

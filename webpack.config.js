@@ -3,6 +3,9 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const $ = require('jquery');
+const SvgStore = require('webpack-svgstore-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -22,6 +25,7 @@ module.exports = {
   // Модули и правила для обработки файлов
   module: {
     rules: [
+
       // Правило для CSS-файлов
       {
         test: /\.css$/,
@@ -30,6 +34,16 @@ module.exports = {
           'css-loader'
         ]
       },
+
+      // Правила для сборки SVG-спрайта
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        options: {
+          extract: true
+        }
+      },
+
       // Правило для SCSS-файлов
       {
         test: /\.scss$/,
@@ -44,25 +58,22 @@ module.exports = {
         )
       },
 
+      // Правило для обработки PUG-файлов
       {
-        test: /\.haml$/,
-        use: 'haml-loader'
+        test: /\.pug$/,
+        use: 'pug-loader'
       },
 
-      // Правило для PUG-файлов
-      // {
-      //   test: /\.pug$/,
-      //   use: 'pug-loader'
-      // },
       // Правило для файлов изображений
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|jpg|jpeg|gif)$/,
         loader: 'file-loader',
         options: {
           name: './css/img/[name].[ext]'
         }
       },
-      // Правило для обработки шрифтов
+
+      // Правило для обработки файлов шрифтов
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         loader: 'file-loader',
@@ -76,14 +87,27 @@ module.exports = {
   // Настройка плагинов
   plugins: [
     // Очистка директории выхода
-    new CleanWebpackPlugin(['dist']),
+    // new CleanWebpackPlugin(['dist']),
+    // Подключаем jQuery
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    }),
     // Экспорт стилей
-    new ExtractTextPlugin({filename: 'style.css'}),
+    new ExtractTextPlugin({filename: './style.css'}),
     // Настройка обработчика HTML
     new HtmlWebpackPlugin({
-      // template: './src/index.pug'
-      template: './src/index.haml'
+      template: './src/index.pug'
+    }),
+    // Сборка спрайта
+    new SpriteLoaderPlugin({
+      plainSprite: true,
+      spriteAttrs: {
+        id: 'import-svg',
+        // Класс скрывает собранный svg-спрайт
+        class: 'visually-hidden'
+      }
     })
   ]
-
 };

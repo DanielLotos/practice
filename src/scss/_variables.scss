@@ -5,13 +5,19 @@ $font-fallback: system,
                 'Roboto',
                 'Segoe UI',
                 'Helvetica Neue',
-                'Lucida Grande',
-                sans-serif;
-
-$Medium: 500;
-$Bold: 700;
+                'Lucida Grande';
 
 $blueLogo: #0078FF;
-$colorLightGrey: #B2B2B2;
-$colorPermGrey: #808080;
-$colorHeaderNav: #999999;
+$colorRed: #FF004F;
+
+// Collection of grey color
+$gray-l1: #F5F5F5;
+$gray-l2: #EBEBEB;
+$gray-l3: #DADADA;
+$gray-d1: #B2B2B2;
+$gray-d2: #999999;
+$gray-d3: #808080;
+$black-l1: #333333;
+
+$borderTop: 2px solid $gray-l1;
+$borderBottom: 2px solid $gray-l2;

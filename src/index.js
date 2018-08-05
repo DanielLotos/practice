@@ -1,7 +1,27 @@
-import './js/script1.js';
-import './js/script2.js';
-console.log('Hello world!');
+// Импорт основного скрипта
+import './js/script';
 
-// import './index.pug';
-import './index.haml';
-import './style.scss';
+// Импорт списка svg-иконок для спрайта
+import './js/_sprite-list';
+
+// Импорт списка изображений товаров
+import './js/_products-list';
+
+import './js/_slider-image-list';
+
+// Импорт JQuery-min
+// import './js/jquery.min.js';
+// Импорт slider owl
+import './js/vendor/owl.carousel.min';
+// Импорт owl config-file
+import './js/vendor/owl.carousel.config';
+
+// Скрипт ПОКАЗАТЬ\СКРЫТЬ для выпадающего списка категорий
+import './js/showCategories.js';
+
+// Импорт основного файла разметки для сборки
+import './index.pug';
+
+// Импорт основного файла стилей для сборки
+import './scss/style.scss';
+

@@ -1,0 +1,12 @@
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="3. Icons/ic_arrow_back">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="7" y="7" width="16" height="16">
+<path id="Icon" fill-rule="evenodd" clip-rule="evenodd" d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z" transform="translate(7 7)" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<g id="5. Colors and Gradients/1. Colors/White/White">
+<path id="Base" fill-rule="evenodd" clip-rule="evenodd" d="M0 0H24V24H0V0Z" transform="translate(3 3)" fill="white"/>
+</g>
+</g>
+</g>
+</svg>

@@ -1,1 +1,0 @@
-console.log('Hello! Its my first script');

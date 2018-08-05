@@ -1,0 +1,81 @@
+[
+    {
+      "type": "Recommend",
+      "category": "Electronics",
+      "name": "Asus ZenFone Go ZB452KG",
+      "imgSrc": "asus-zenfone-go",
+      "price": "384.4"
+    },
+
+    {
+      "type": "Bestseller",
+      "category": "Electronics, Chilldren's goods",
+      "name": "Xiaomi Mi Band 2",
+      "imgSrc": "xiaomi-mi-band-2",
+      "price": "84.2"
+    },
+
+    {
+      "type": "Goods of the week",
+      "category": "Electronics",
+      "name": "LG 43UH610V",
+      "imgSrc": "lg-43uh610v",
+      "price": "235.8"
+    },
+
+    {
+      "type": "Recommend",
+      "category": "Electronics",
+      "name": "Apple iMac 27 Retina 5K",
+      "imgSrc": "apple-imac-27-retina-5k",
+      "price": "384.4"
+    },
+
+    {
+      "type": "New product",
+      "category": "Appleances",
+      "name": "LG Condotioner",
+      "imgSrc": "lg-conditioner",
+      "price": "112.4"
+    },
+
+    {
+      "type": "Recommend",
+      "category": "Appleances",
+      "name": "Electrolux EZB 52410 AK",
+      "imgSrc": "electrolux",
+      "price": "122.2"
+    },
+
+    {
+      "type": "Bestseller",
+      "category": "Electronics, Chilldren's goods",
+      "name": "Beats studio wireless",
+      "imgSrc": "beats-studio-wireless",
+      "price": "94.3"
+    },
+
+    {
+      "type": "Recommend",
+      "category": "Electronics",
+      "name": "Nikon D3300 Kit",
+      "imgSrc": "nikon-d3300",
+      "price": "204.7"
+    },
+
+    {
+      "type": "Recommend",
+      "category": "Electronics",
+      "name": "Apple iPhone 7",
+      "imgSrc": "iphone-7",
+      "price": "670"
+    },
+
+    {
+      "type": "New product",
+      "category": "Electronics",
+      "name": "LG G6 H87DDS",
+      "imgSrc": "lg-phone",
+      "price": "545"
+    }
+]
