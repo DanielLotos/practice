@@ -1,81 +1,88 @@
+// -------------------------------------------------
+// DATA
+// -------------------------------------------------
+
+// Инициализируем массив для базы товаров
+// полученных с сервера
+let productsData = [];
+
+// Инициализируем объект параметров для
+// фильтрации
+let productsParams = {
+  "type": "",
+  "category": ""
+};
+
+
+// -------------------------------------------------
+// Common logic
+// -------------------------------------------------
+
 /**
-* Фильтр товаров по параметрам фильтров
-*
-* @filteredProducts   Array     Отфильтрованный список
-* @products           Array     Список продкутов
-* @filters            Object    Список фильтров
-* @retun              Array     Возвращает отфильтрованный список
-*/
-
-let filteredProducts = [];
-
+ * Фильтр товаров по параметрам фильтров
+ *
+ * @param   {array}   products      Список продкутов
+ * @param   {object}  filters       Список фильтров
+ *
+ * @returns {array}                 Возвращает отфильтрованный список
+ */
 function productsFilter (products, filters) {
-  // Перебор товаров
+  let filteredProducts = [];
   products.forEach(function(product) {
-    // Значение-флажок для пропуска товаров
-    let filtered = true;
-    // Перебор паарметров по заданным фильтрам
-    Object.keys(filters).map(function(parameterName) {
 
-      let parameterValue              = filters[parameterName];
-      let productParameterValue       = product[parameterName];
-      // Если значение параметров = пустой строке,
-      //   то все товары подходят
+    // Флаг отображения товара на странице
+    let matched = true;
 
-      if(parameterValue == "") {filtered = true;}
-        else {
-          let productParameterArray        = productParameterValue.split(", ");
-          let foundedParameterValueIndex   = productParameterArray.indexOf(parameterValue);
-          // Если не совпал по типу и значению, то не пропускаем в
-          //   отфильтрованные товары
-          if ( foundedParameterValueIndex < 0 ) filtered = false
-        };
+    Object.keys(filters).forEach(function(parameterName) {
+
+      let filterParameterValue           = filters[parameterName];
+
+      if ( filterParameterValue != '') {
+        let productParameterValue        = product[parameterName];
+        let productParameterArray        = productParameterValue.split(", ");
+        let foundedParameterValueIndex   = productParameterArray.indexOf(filterParameterValue);
+
+        if ( foundedParameterValueIndex < 0 ) matched = false
+      }
 
     });
 
-    if (filtered) filteredProducts.push(product);
+    if (matched) filteredProducts.push(product);
 
   });
+  // console.log("Отсортированный список: ", filteredProducts);
   return filteredProducts;
 }
 
 
 
 /**
-* Тело фильтрации и вывода
-* Получаем ответ от сервера
-* В ответе список товаров
-* Парсим его
-* Передаем товары и фильтры в функцию отбора товаров
-*   по выбранным параметрам фильтров
-* Передаем отфильтрованные товары в функцию
-*   генерации карточек товаров на странице
-*
-* @products           Array     Список товаров
-* @productsParams     Object    Список фильтров
-* @filteredProducts   Array     Отфильтрованный список
-*/
-function getFetch() {
+ * Получение товаров из базы
+ *
+ */
+function fetchProducts() {
+
   fetch('productBase.json')
     .then(response => response.json()) // Метод .json() разрешает обещания с JSON
-    .then(products => {
-      productsFilter(products, productsParams);
-      generateHTML(filteredProducts);
+    .then(responceProducts => {
+
+      // console.info(responceProducts);
+      productsData = responceProducts;
+      generateHTML(productsFilter(productsData, productsParams));
+
     })
-    .then(console.info('Вывод товаров завершен'))
     .catch(function(error){
       console.error("Ошибка: ", error);
     });
+
 }
 
 
-
 /**
-* Генерация продуктов на страницу
-*
-* @products     Array     Список отфильтрованных продкутов
-*/
-
+ * Генерация продуктов на страницу
+ *
+ * @param   {array}   products    Список отфильтрованных продкутов
+ */
 function generateHTML (products) {
   let productsList = document.getElementById('js-products__list');
   productsList.innerHTML = '';
@@ -105,11 +112,27 @@ function generateHTML (products) {
 }
 
 
+// -------------------------------------------------
+// Handlers
+// -------------------------------------------------
 
-// Параметры для фильтра
-let productsParams = {
-"type": "",
-"category": "Appleances",
-};
+// Обработчик селекта
+let selecterCategory = document.getElementById("js-categoriSelecter");
+selecterCategory.addEventListener("change", function () {
+  productsParams.category = this.value;
+  generateHTML(productsFilter(productsData, productsParams))
+});
 
-getFetch();
+// Обработчик радио
+let productTypeInput = document.querySelectorAll('input[name=productType]');
+productTypeInput.forEach(function (input) {
+  input.addEventListener('change', function () {
+    productsParams.type = this.value;
+    generateHTML(productsFilter(productsData, productsParams))
+  })
+});
+
+
+// Init
+
+fetchProducts();

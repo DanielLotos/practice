@@ -105,13 +105,13 @@ html(lang="en")
                 use(xlink:href="#icon_star")
               | Interesting offers
             .product-header__wrapper
-              input.product-header__radio.visually-hidden(type="radio", id="productPopular", name="productType", value="Popular")
-              label.product-header__btn.product-header__label(for="productPopular")
-                | Popular
-              input.product-header__radio.visually-hidden(type="radio", id="productTrending", name="productType", value="Trending")
-              label.product-header__btn.product-header__label(for="productTrending")
-                | Trending
-              input.product-header__radio.visually-hidden(type="radio", id="productNew", name="productType", value="New")
+              input.product-header__radio.visually-hidden(type="radio", id="productRecommend", name="productType", value="Recommend")
+              label.product-header__btn.product-header__label(for="productRecommend")
+                | Recommend
+              input.product-header__radio.visually-hidden(type="radio", id="productBestseller", name="productType", value="Bestseller")
+              label.product-header__btn.product-header__label(for="productBestseller")
+                | Bestseller
+              input.product-header__radio.visually-hidden(type="radio", id="productNew", name="productType", value="New product")
               label.product-header__btn.product-header__label(for="productNew")
                 | New
               input.product-header__radio.visually-hidden(type="radio", id="productAll", name="productType", value="", checked="checked")
@@ -119,6 +119,7 @@ html(lang="en")
               .product-form__select-wrapper
                 select.product-form__select#js-categoriSelecter(name="categories")
                   option(value="" hidden) Categories
+                  option(value="") All
                   option(value="Electronics") Electronics
                   option(value="Appleances") Appleances
                   option(value="Chilldren's goods") Chilldren's goods
