@@ -19,7 +19,7 @@ let productsParams = {
 // -------------------------------------------------
 
 /**
- * Фильтр товаров по параметрам фильтров
+ * Фильтрация товаров по полученным аргументам-параметрам фильтра
  *
  * @param   {array}   products      Список продкутов
  * @param   {object}  filters       Список фильтров
@@ -53,7 +53,6 @@ function productsFilter (products, filters) {
   // console.log("Отсортированный список: ", filteredProducts);
   return filteredProducts;
 }
-
 
 
 /**
