@@ -24,4 +24,3 @@ import './index.pug';
 
 // Импорт основного файла стилей для сборки
 import './scss/style.scss';
-

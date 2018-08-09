@@ -538,6 +538,14 @@ a {
   -webkit-transform: translate3d(0, -20px, 0) rotate(90deg);
           transform: translate3d(0, -20px, 0) rotate(90deg); }
 
+.weather__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
 body {
   font-family: "Roboto", system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", serif;
   color: #808080;
