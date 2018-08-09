@@ -1,3 +1,9 @@
+import React from 'react';
+import {render} from 'react-dom';
+import Weather from './components/weather';
+
+render(<Weather/>, document.getElementById('weatherWidget'));
+
 // -------------------------------------------------
 // DATA
 // -------------------------------------------------

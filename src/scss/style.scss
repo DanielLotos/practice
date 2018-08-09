@@ -5,6 +5,7 @@
 @import "./variables";
 @import "./vendor/hamburgers/hamburgers";
 @import "./mixin";
+@import "./components/weather";
 
 body {
   font-family: 'Roboto', $font-fallback, serif;

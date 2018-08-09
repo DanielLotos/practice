@@ -26,6 +26,14 @@ module.exports = {
   module: {
     rules: [
 
+      // Правило для JS и реакт-компонентов
+      {
+        test: /\.js$/,
+        use: [
+          'babel-loader'
+        ]
+      },
+
       // Правило для CSS-файлов
       {
         test: /\.css$/,
